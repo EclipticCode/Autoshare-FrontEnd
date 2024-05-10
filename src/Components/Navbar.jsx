@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
+        <div className="container">
           <a className="navbar-brand autoshare" href="#">
             AutoShare
           </a>
