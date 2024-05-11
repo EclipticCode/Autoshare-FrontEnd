@@ -1,11 +1,13 @@
 import React from "react";
 import "./CardList.css";
 
-const CarsList = () => {
+const CarsList = ({location = ""}) => {
+    const urlLocation = location ? location.toLowerCase() : "delhi";
+    const carsData = carDetails[urlLocation];
   return (
     <div className="container">
       <div className="row">
-        {carDetails.mumbai.map((car, index) => {
+        {carsData.map((car, index) => {
           const { img, carTitle, ratings, tags, trips, pricePerHour, fees } = car;
           return (
             <div

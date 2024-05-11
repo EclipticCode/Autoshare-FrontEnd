@@ -2,16 +2,18 @@ import React from "react";
 import CarsList from "./CarsList";
 import "./CarsPage.css";
 import Filter from "./Filter";
+import {useParams} from "react-router-dom"
 
 const CarsPage = () => {
+    const {location = "Delhi"} = useParams();
   return (
     <div>
       <div className="container">
         <div className="row">
-          <div className="col-sm-2">
+          <div className="col-sm-4 col-lg-2">
             <Filter/>
           </div>
-          <div className="col-sm-10">
+          <div className="col-sm-8 col-lg-10">
             <div className="row">
               <div className="col">
                 <nav
@@ -19,12 +21,12 @@ const CarsPage = () => {
                   aria-label="breadcrumb"
                 >
                   <ol className="breadcrumb">
-                    <li className="breadcrumb-item">Home</li>
+                    <li className="breadcrumb-item">Location</li>
                     <li className="breadcrumb-item" aria-current="page">
-                      Library
+                      {location} City
                     </li>
                     <li className="breadcrumb-item" aria-current="page">
-                      Library
+                    {location}
                     </li>
                   </ol>
                 </nav>
@@ -32,7 +34,7 @@ const CarsPage = () => {
             </div>
             <div className="row">
               <div className="col-md-9 h2">
-                Self-Drive Car Rentals in Chennai
+                Self-Drive Car Rentals in {location} 
               </div>
               <div className="col-md-3">
                 <select
@@ -46,7 +48,7 @@ const CarsPage = () => {
                 </select>
               </div>
             </div>
-             <CarsList />
+             <CarsList location={location} />
           </div>
         </div>
       </div>
