@@ -3,6 +3,7 @@ import CarsList from "./CarsList";
 import "./CarsPage.css";
 import Filter from "./Filter";
 import {useParams} from "react-router-dom"
+import { ParamsProvider } from "./Context";
 
 const CarsPage = () => {
     const {location = "Delhi"} = useParams();
@@ -48,7 +49,9 @@ const CarsPage = () => {
                 </select>
               </div>
             </div>
-             <CarsList location={location} />
+             <ParamsProvider>
+             <CarsList />
+             </ParamsProvider>
           </div>
         </div>
       </div>

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CardList.css";
+import { ParamsContext } from "./Context";
 
-const CarsList = ({location = ""}) => {
+const CarsList = () => {
+
+    const { location } = useContext(ParamsContext)
     const urlLocation = location ? location.toLowerCase() : "delhi";
     const carsData = carDetails[urlLocation];
+
   return (
     <div className="container">
       <div className="row">
