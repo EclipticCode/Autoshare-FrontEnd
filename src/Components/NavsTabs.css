@@ -4,3 +4,6 @@
 .active{
    color: rgba(2, 138, 114, 1)
 }
+.navsTabs{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}

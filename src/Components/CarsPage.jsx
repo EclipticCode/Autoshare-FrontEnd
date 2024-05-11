@@ -50,7 +50,7 @@ const CarsPage = () => {
               </div>
             </div>
              <ParamsProvider>
-             <CarsList />
+                 <CarsList />
              </ParamsProvider>
           </div>
         </div>

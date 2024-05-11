@@ -8,7 +8,6 @@ import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
 const App = () => {
   
-
   const BasicPage = () => {
     return (
       <div>
@@ -18,12 +17,13 @@ const App = () => {
       </div>
     )
   }
+
   return (
     <div>
        <BrowserRouter>
              <Routes>
-             <Route path='/:location' element={<BasicPage/>}></Route>
-              <Route path='*' element={<BasicPage/>}></Route>
+               <Route path='/:location' element={<BasicPage/>}></Route>
+               <Route path='*' element={<BasicPage/>}></Route>
              </Routes>
        </BrowserRouter>
     </div>

@@ -3,7 +3,7 @@ import "./NavsTabs.css";
 
 const NavsTabs = () => {
   return (
-    <div>
+    <div className="navsTabs">
       <ul className="nav nav-underline justify-content-center">
         <li className="nav-item me-4">
           <a className="nav-link active" aria-current="page" href="#">
