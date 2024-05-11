@@ -2,3 +2,7 @@
     color: rgba(2, 138, 114, 1);
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.form-select{
+    width:200px ;
+    margin-right: 200px;
+}

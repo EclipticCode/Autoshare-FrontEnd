@@ -26,48 +26,22 @@ const Filter = () => {
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
-                    <div className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="flexCheckDefault"
-                      >
-                        Default checkbox
-                      </label>
-                    </div>
-                    <div className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="flexCheckDefault"
-                      >
-                        Default checkbox
-                      </label>
-                    </div>
-                    <div className="form-check">
-                      <input
-                        className="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="flexCheckDefault"
-                      />
-                      <label
-                        className="form-check-label"
-                        htmlFor="flexCheckDefault"
-                      >
-                        Default checkbox
-                      </label>
-                    </div>
+                    {ratingsFilter.map((ratings , index) => (
+                          <div className="form-check" key={index}>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            {ratings}
+                          </label>
+                        </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -90,10 +64,22 @@ const Filter = () => {
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
-                    Placeholder content for this accordion, which is intended to
-                    demonstrate the <code>.accordion-flush</code> class. This is
-                    the second item's accordion body. Let's imagine this being
-                    filled with some actual content.
+                  {transmissionFilter.map((transmission , index) => (
+                          <div className="form-check" key={index}>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                           {transmission}
+                          </label>
+                        </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -116,13 +102,60 @@ const Filter = () => {
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div className="accordion-body">
-                    Placeholder content for this accordion, which is intended to
-                    demonstrate the <code>.accordion-flush</code> class. This is
-                    the third item's accordion body. Nothing more exciting
-                    happening here in terms of content, but just filling up the
-                    space to make it look, at least at first glance, a bit more
-                    representative of how this would look in a real-world
-                    application.
+                  {seatsFilter.map((seats , index) => (
+                          <div className="form-check" key={index}>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            {seats}
+                          </label>
+                        </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFour"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseFour"
+                  >
+                    Fuel Type
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseFour"
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div className="accordion-body">
+                  {fuelFilter.map((fuel , index) => (
+                          <div className="form-check" key={index}>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            {fuel}
+                          </label>
+                        </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -132,3 +165,9 @@ const Filter = () => {
 }
 
 export default Filter
+
+
+const ratingsFilter = ['5 Star' , '4-5 Stars' , '3-4 Stars' , 'All' ]
+const transmissionFilter = ['Manual' , 'Automatic' , 'Hybrid']
+const seatsFilter = [ '4/5 Seater' , '6/7 Seater']
+const fuelFilter = ['Petrol' , 'Diesel']

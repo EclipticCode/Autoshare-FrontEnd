@@ -1,12 +1,14 @@
 import React from "react";
-import './Navbar.css'
+import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    
+
+  const navigate = useNavigate();
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container">
+        <div className="container-fluid">
           <a className="navbar-brand autoshare" href="#">
             AutoShare
           </a>
@@ -24,48 +26,35 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                <select
+                  className="form-select"
+                  aria-label="Default select example"
+                  onChange={event => {
+                    const selectedLocation = event.target.value;
+                    selectedLocation?.length && navigate('/' + selectedLocation)
+                  }}
                 >
-                  Select Location
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Chennai
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Delhi
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Mumbai
-                    </a>
-                  </li>
-                </ul>
+                  <option defaultValue>Select Location</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Mumbai">Mumbai</option>
+                </select>
               </li>
             </ul>
             <form className="d-flex" role="search">
               <input
-                className="form-control me-4"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success me-4" type="submit">
+            </form>
+            <button className="btn btn-outline-success me-2" type="submit">
                 Login
               </button>
               <button className="btn btn-outline-success" type="submit">
                 Register
               </button>
-            </form>
           </div>
         </div>
       </nav>

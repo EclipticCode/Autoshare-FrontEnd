@@ -2,14 +2,29 @@ import React from 'react'
 import Navbar from './Components/Navbar'
 import NavsTabs from './Components/NavsTabs'
 import CarsPage from './Components/CarsPage'
+import { BrowserRouter , Routes , Route } from 'react-router-dom'
+
 
 
 const App = () => {
-  return (
-    <div>
-      <Navbar/>
+  
+
+  const BasicPage = () => {
+    return (
+      <div>
+        <Navbar/>
       <NavsTabs/>
       <CarsPage/>
+      </div>
+    )
+  }
+  return (
+    <div>
+       <BrowserRouter>
+             <Routes>
+              <Route path='*' element={<BasicPage/>}></Route>
+             </Routes>
+       </BrowserRouter>
     </div>
   )
 }

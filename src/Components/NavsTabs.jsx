@@ -9,7 +9,7 @@ const NavsTabs = () => {
     <a className="nav-link active" aria-current="page" href="#">Home</a>
   </li>
   <li className="nav-item me-4">
-    <a className="nav-link cars" href="#">Cars</a>
+    <a className="nav-link cars" href="#">Blogs</a>
   </li>
   <li className="nav-item me-4">
     <a className="nav-link about" href="#">About Us</a>

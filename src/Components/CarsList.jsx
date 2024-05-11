@@ -259,7 +259,7 @@ const carDetails = {
         img: "https://5.imimg.com/data5/SELLER/Default/2023/9/341701097/SA/DR/FF/94284151/4-500x500.jpg",
         carTitle: "Tata ALTROZ 2024",
         ratings: 4.3,
-        tags: ["Manual", "Petro;", "5 Seats"],
+        tags: ["Manual", "Petrol", "5 Seats"],
         trips: "21 Trip",
         pricePerHour: "₹209/hr",
         fees: "₹5,852 excluding fees ",
