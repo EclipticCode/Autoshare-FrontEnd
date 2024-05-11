@@ -1,5 +1,6 @@
 import React from "react";
 import CarsList from "./CarsList";
+import './CarsPage.css'
 
 const CarsPage = () => {
   return (
@@ -128,8 +129,16 @@ const CarsPage = () => {
                 </select>
               </div>
             </div>
-            <CarsList />
-          </div>
+          {/* <div className="container"> */}
+          {/* <div className="row">
+          
+             <div className="col-sm-12 col-md-6 col-lg-4" > */}
+             <CarsList/>
+            </div>
+        
+           {/* </div>
+          </div> */}
+          {/* </div> */}
         </div>
       </div>
     </div>
@@ -137,3 +146,5 @@ const CarsPage = () => {
 };
 
 export default CarsPage;
+
+
