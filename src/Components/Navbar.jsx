@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import RegistrationModal from "./RegistrationModal";
 
 const Navbar = () => {
   const [openType, setOpenType] = useState("");
@@ -62,14 +63,15 @@ const Navbar = () => {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              onClick={handleLogin}
             >
               Login
             </button>
             <LoginModal/>
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-outline-success" type="button" data-bs-toggle="modal"
+              data-bs-target="#staticBackdropRegister">
               Register
             </button>
+            <RegistrationModal/>
           </div>
         </div>
       </nav>
