@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
+import LoginModal from "./LoginModal";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 
 const Navbar = () => {
+  const [openType, setOpenType] = useState("");
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    setOpenLogin(true);
+  };
 
   const navigate = useNavigate();
   return (
@@ -29,9 +37,10 @@ const Navbar = () => {
                 <select
                   className="form-select"
                   aria-label="Default select example"
-                  onChange={event => {
+                  onChange={(event) => {
                     const selectedLocation = event.target.value;
-                    selectedLocation?.length && navigate('/' + selectedLocation)
+                    selectedLocation?.length &&
+                      navigate("/" + selectedLocation);
                   }}
                 >
                   <option defaultValue>Select Location</option>
@@ -41,20 +50,26 @@ const Navbar = () => {
                 </select>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </form>
-            <button className="btn btn-outline-success me-2" type="submit">
-                Login
-              </button>
-              <button className="btn btn-outline-success" type="submit">
-                Register
-              </button>
+
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              className="btn btn-outline-success me-2"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              onClick={handleLogin}
+            >
+              Login
+            </button>
+            <LoginModal/>
+            <button className="btn btn-outline-success" type="submit">
+              Register
+            </button>
           </div>
         </div>
       </nav>
