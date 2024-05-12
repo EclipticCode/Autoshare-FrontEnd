@@ -12,8 +12,8 @@ const App = () => {
     return (
       <div>
         <Navbar/>
-      <NavsTabs/>
-      <CarsPage/>
+        <NavsTabs/> <br />
+        <CarsPage/>
       </div>
     )
   }

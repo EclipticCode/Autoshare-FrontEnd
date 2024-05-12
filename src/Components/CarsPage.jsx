@@ -34,7 +34,7 @@ const CarsPage = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-9 h2">
+              <div className="col-md-9 h2 selfdrive">
                 Self-Drive Car Rentals in {location} 
               </div>
               <div className="col-md-3">
