@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal";
-import { Formik, Field, Form, ErrorMessage } from "formik";
 import RegistrationModal from "./RegistrationModal";
 
 const Navbar = () => {
@@ -51,9 +50,9 @@ const Navbar = () => {
                 </select>
               </li>
             </ul>
-
+            <div className="d-flex" role="search">
             <input
-              className="form-control me-2"
+              className="form-control me-4 "
               type="search"
               placeholder="Search"
               aria-label="Search"
@@ -71,6 +70,7 @@ const Navbar = () => {
               data-bs-target="#staticBackdropRegister">
               Register
             </button>
+            </div>
             <RegistrationModal/>
           </div>
         </div>

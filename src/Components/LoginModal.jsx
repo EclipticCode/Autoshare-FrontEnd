@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import './LoginModal.css'
 
@@ -57,6 +57,10 @@ import './LoginModal.css'
 
 
 const LoginModal = () => {
+    const [formState , setFormState] = useState({
+        username : "" ,
+        password : "" ,
+    })
   return (
     <div>
          <div
@@ -99,17 +103,32 @@ const LoginModal = () => {
         }}
       >
         <Form>
-          <div className="username">
+          <div className="username" 
+        //   onChange={(e) => {
+        //     setFormState({
+        //          ...formState ,
+        //           username : e.target.value 
+        //           })
+        //           }}
+                  >
             <label htmlFor="formGroupExampleInput" className="form-label">Username</label>
-            <Field id="username" name="username" type="text"className="form-control"  />
+            <Field id="username" name="username" type="text"className="form-control"/>
             <ErrorMessage name="username" component="span" className="error" />
           </div>
 
-          <div>
+          <div  
+        //   onChange={(e) => {
+        //     setFormState({
+        //          ...formState ,
+        //           password : e.target.value 
+        //           })
+        //           }}
+        >
             <label>Password</label>
             <Field id="password" name="password" type="text" className="form-control" />
             <ErrorMessage name="password" component="span" className="error" />
           </div>
+
           <div className="modal-footer">
             <button
               type="submit"
@@ -118,9 +137,11 @@ const LoginModal = () => {
             >
               Submit
             </button>
+
             <button type="button" className="btn btn-secondary">
               Cancel
             </button>
+
           </div>
         </Form>
       </Formik>

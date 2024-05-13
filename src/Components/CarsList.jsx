@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import "./CardList.css";
+import React, { useContext , useState} from "react";
+import "./CarsList.css";
 import { ParamsContext } from "./Context";
+import BookingModal from "./BookingModal";
 
 const CarsList = () => {
 
@@ -8,11 +9,15 @@ const CarsList = () => {
     const urlLocation = location ? location.toLowerCase() : "delhi";
     const carsData = carDetails[urlLocation];
 
+    const handleBookNow = (id) =>{
+     console.log(id , "HotelID")
+    }
+
   return (
     <div className="container">
       <div className="row">
         {carsData.map((car, index) => {
-          const { img, carTitle, ratings, tags, trips, pricePerHour, fees } = car;
+          const { img, carTitle, ratings, tags, trips, pricePerHour, fees , id , fastag} = car;
           return (
             <div
               className="col-sm-12 col-md-6 col-lg-4 justify-content-center margin"
@@ -38,26 +43,28 @@ const CarsList = () => {
                   <h6>{pricePerHour}</h6>
                   <p className="fees">{fees}</p>
                   <hr />
-                  <h5>
+                  <div>
                     <span className="badge">
                       <span>
-                        <i className="bi bi-tags"></i>
+                        <i className="bi bi-tags me-1"></i>
                       </span>
-                      FASTAG
+                        FASTAG
                     </span>
                     <span className="bookNow">
                       {" "}
-                      <button type="button" className="btn btn-success">
+                      <button type="button" className="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdropBookNow" onClick={() => handleBookNow(id)}>
                         Book Now
                       </button>
                     </span>
-                  </h5>
+                  </div>
                 </div>
               </div>
             </div>
           );
         })}
       </div>
+      <BookingModal/>
     </div>
   );
 };
@@ -75,6 +82,7 @@ const carDetails = {
         trips: "4 Trips",
         pricePerHour: "₹570/hr",
         fees: "₹15,960 excluding fees",
+        fastag : "FASTAG"
       },
       {
         id: "48a69e46-eaaa-4a7d-999f-45b24eb7f3a5",
@@ -85,6 +93,7 @@ const carDetails = {
         trips: "49 Trips",
         pricePerHour: "₹139/hr",
         fees: "₹3,892 excluding fees",
+        fastag : "FASTAG"
       },
       {
         id: "d123a6c7-bd0e-47d1-b19d-7c2c3d5b5ec9",
@@ -105,6 +114,7 @@ const carDetails = {
         trips: "20 Trips",
         pricePerHour: "₹130/hr",
         fees: "₹3,640 excluding fees",
+        fastag : "FASTAG"
       },
     {
         id: "48a44e46-eaaa-4a7d-989f-45b24eb7f3d4",
@@ -412,3 +422,4 @@ const carDetails = {
       },
   ],
 };
+  
