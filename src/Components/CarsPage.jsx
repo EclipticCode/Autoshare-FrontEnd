@@ -22,11 +22,11 @@ const CarsPage = () => {
                   aria-label="breadcrumb"
                 >
                   <ol className="breadcrumb">
-                    <li className="breadcrumb-item">Location</li>
-                    <li className="breadcrumb-item" aria-current="page">
+                    <li className="breadcrumb-item location">Location</li>
+                    <li className="breadcrumb-item location" aria-current="page">
                       {location} City
                     </li>
-                    <li className="breadcrumb-item" aria-current="page">
+                    <li className="breadcrumb-item mainLocation" aria-current="page">
                     {location}
                     </li>
                   </ol>

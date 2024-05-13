@@ -17,7 +17,7 @@ const Navbar = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand autoshare" href="#">
+          <a className="navbar-brand autoshare" href="#" style={{color : "#028a72"}}>
             AutoShare
           </a>
           <button
@@ -52,10 +52,11 @@ const Navbar = () => {
             </ul>
             <div className="d-flex" role="search">
             <input
-              className="form-control me-4 "
+              className="form-control me-4"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              style={{"width":"500px"}}
             />
             <button
               className="btn btn-outline-success me-2"

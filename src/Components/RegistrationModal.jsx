@@ -62,13 +62,13 @@ const RegistrationModal = () => {
 
           <div className='mb-2' >
             <label>Password</label>
-            <Field id="password" name="password" type="text" className="form-control" />
+            <Field id="password" name="password" type="password" className="form-control" />
             <ErrorMessage name="password" component="span" className="error" />
           </div>
 
           <div className='mb-2'>
             <label>Confirm Password</label>
-            <Field id="confirmPassword" name="confirmPassword" type="text" className="form-control" />
+            <Field id="confirmPassword" name="confirmPassword" type="password" className="form-control" />
             <ErrorMessage name="confirmPassword" component="span" className="error" />
           </div>
 

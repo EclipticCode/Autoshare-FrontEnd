@@ -1,4 +1,7 @@
 .accordion{
     box-shadow: 0px 2px 4px rgb(0,0,0,0.2);
-    border: 1px solid  rgb(214, 247, 241); ;
+    border: 1px solid  rgb(214, 247, 241); 
+}
+.accordion-button:focus , .accordion-button:active  {
+    outline : none;
 }

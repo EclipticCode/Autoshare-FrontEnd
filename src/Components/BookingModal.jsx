@@ -2,6 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './BookingModal.css'
 
 const BookingModal = () => {
   return (
@@ -28,6 +29,13 @@ const BookingModal = () => {
             </div>
 
             <div className="modal-body">...</div>
+            <div>
+                <input type="date" className="form-control ms-10" id="datepicker" />
+                <span>
+                <input type="date" className="form-control" id="datepicker" />
+                </span>
+            </div>
+            
             <div className="modal-footer">
               <button
                 type="button"

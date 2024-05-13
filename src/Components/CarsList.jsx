@@ -1,5 +1,5 @@
 import React, { useContext , useState} from "react";
-import './CarsList.css'
+ import './CarsList.css'
 import { ParamsContext } from "./Context";
 import BookingModal from "./BookingModal";
 
@@ -10,7 +10,7 @@ const CarsList = () => {
     const carsData = carDetails[urlLocation];
 
     const handleBookNow = (id) =>{
-     console.log(id , "HotelID")
+     console.log(id , "carID")
     }
 
   return (
@@ -32,7 +32,7 @@ const CarsList = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{carTitle}</h5>
-                  <p className="Ratings">{ratings}</p>
+                  <p className="Ratings small">{ratings} <span><i className="fa-solid fa-star small ms-1" style={{color: "#ffffff"}}></i></span></p>
                   <p className="card-text">{tags.map((e) => `${e} | `)}</p>
                   <p>
                     <span>
@@ -44,7 +44,7 @@ const CarsList = () => {
                   <p className="fees">{fees}</p>
                   <hr />
                   <div>
-                    <span className="badge">
+                    <span className="badge" style={{color:"#ff4242"}}>
                       <span>
                         <i className="bi bi-tags me-1"></i>
                       </span>
@@ -77,7 +77,7 @@ const carDetails = {
         id: "48a44e46-eaaa-4a7d-989f-45b24eb7f3a5",
         img: "https://www.team-bhp.com/sites/default/files/styles/check_high_res/public/2023-mg-hector-05.jpg",
         carTitle: "MG Hector 2023",
-        ratings: 5.0,
+        ratings: 4.6,
         tags: ["Automatic", "Petrol", "6 Seats"],
         trips: "4 Trips",
         pricePerHour: "₹570/hr",
