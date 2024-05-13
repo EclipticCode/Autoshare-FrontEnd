@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
 const RegistrationModal = () => {
+
   return (
     <div>
          <div
@@ -55,7 +56,7 @@ const RegistrationModal = () => {
         <Form className='mb-2'>
           <div className="username mb-2">
             <label htmlFor="formGroupExampleInput" className="form-label">Enter Your Name</label>
-            <Field id="username" name="username" type="text"className="form-control"  />
+            <Field id="username" name="username" type="text"className="form-control" />
             <ErrorMessage name="username" component="span" className="error" />
           </div>
 

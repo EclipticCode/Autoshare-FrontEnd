@@ -1,5 +1,5 @@
 import React, { useContext , useState} from "react";
-import "./CarsList.css";
+import './CarsList.css'
 import { ParamsContext } from "./Context";
 import BookingModal from "./BookingModal";
 
@@ -20,7 +20,7 @@ const CarsList = () => {
           const { img, carTitle, ratings, tags, trips, pricePerHour, fees , id , fastag} = car;
           return (
             <div
-              className="col-sm-12 col-md-6 col-lg-4 justify-content-center margin"
+              className="col-sm-12 col-md-8 col-lg-4 col-xl-4 justify-content-center margin"
               key={index}
             >
               <div className="card " style={{ width: "19rem" }}>
