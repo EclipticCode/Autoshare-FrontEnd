@@ -2,7 +2,7 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: rgb(16,163,16);
+    background-color: #028a72;
     color: rgb(255, 255, 255);
     border-radius: 2px;
     height: 20px;
@@ -18,7 +18,7 @@
     font-size: small;
 }
 .bi-patch-check-fill{
-    color:rgb(16,163,16) ;
+    color:#028a72;
 }
 .fees{
     color: rgb(146, 145, 145);
@@ -28,7 +28,7 @@
 .card{
     cursor: pointer;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgb(176, 176, 176);
+    border: 1px solid rgb(153, 153, 153);
 }
 .bi-car-front{
     margin-right: 5px;
@@ -50,4 +50,13 @@
     align-items: center;
     margin-bottom: 7px;
     margin-right: 1px;
+}
+.btn-success{
+    background-color: #028a72;
+    transition: transform 0.4s ease;
+}
+.btn-success:hover{
+  background-color: #026c59;
+  transform: scale(1.1);
+  font-weight: 600;
 }

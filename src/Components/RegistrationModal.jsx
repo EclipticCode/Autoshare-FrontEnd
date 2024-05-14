@@ -54,33 +54,37 @@ const RegistrationModal = () => {
         }}
       >
         <Form className='mb-2'>
-          <div className="username mb-2">
+          <div className="username mb-2" >
             <label htmlFor="formGroupExampleInput" className="form-label">Enter Your Name</label>
-            <Field id="username" name="username" type="text"className="form-control" />
+            <Field id="username" name="username" type="text"className="form-control" placeholder="Enter your Name"/>
             <ErrorMessage name="username" component="span" className="error" />
           </div>
 
           <div className='mb-2' >
             <label>Password</label>
-            <Field id="password" name="password" type="password" className="form-control" />
+            <Field id="password" name="password" type="password" className="form-control" 
+            placeholder="Enter Password" />
             <ErrorMessage name="password" component="span" className="error" />
           </div>
 
           <div className='mb-2'>
             <label>Confirm Password</label>
-            <Field id="confirmPassword" name="confirmPassword" type="password" className="form-control" />
+            <Field id="confirmPassword" name="confirmPassword" type="password" className="form-control"
+            placeholder="Confirm Password" />
             <ErrorMessage name="confirmPassword" component="span" className="error" />
           </div>
 
           <div className='mb-2'>
             <label>Enter Phone Number</label>
-            <Field id="phoneNumber" name="phoneNumber" type="text" className="form-control" />
+            <Field id="phoneNumber" name="phoneNumber" type="text" className="form-control"
+            placeholder="Enter Phone Number" />
             <ErrorMessage name="phoneNumber" component="span" className="error" />
           </div>
 
-          <div className='mb-2'>
+          <div className='mb-4'>
             <label>Enter Email Address</label>
-            <Field id="emailAddress" name="emailAddress" type="email" className="form-control" />
+            <Field id="emailAddress" name="emailAddress" type="email" className="form-control"
+            placeholder="Enter Email Address" />
             <ErrorMessage name="emailAddress" component="span" className="error" />
           </div>
 

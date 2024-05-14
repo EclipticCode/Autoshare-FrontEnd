@@ -1,7 +1,22 @@
 import React from 'react'
 import './Filter.css'
 
-const Filter = () => {
+const Filter = ({filteredTags , setFilteredTags}) => {
+
+  const handleFilterChange = (event) => {
+
+   if(event.target.checked){
+    setFilteredTags([
+      ...filteredTags , 
+      event.target.value
+    ])
+   }
+   else{
+    const filteredItems = filteredTags.filter((filter) => filter!= event.target.value);
+    setFilteredTags(filteredItems)
+   }
+
+  }
   return (
     <div>
         <div
@@ -32,8 +47,9 @@ const Filter = () => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            value=""
+                            value={ratings}
                             id="flexCheckDefault"
+                            onChange={handleFilterChange}
                           />
                           <label
                             className="form-check-label"

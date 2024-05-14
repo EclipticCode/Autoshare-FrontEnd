@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CarsList from "./CarsList";
 import "./CarsPage.css";
 import Filter from "./Filter";
@@ -6,13 +6,16 @@ import {useParams} from "react-router-dom"
 import { ParamsProvider } from "./Context";
 
 const CarsPage = () => {
+    const [filteredTags , setFilteredTags] = useState([])
+
     const {location = "Delhi"} = useParams();
+
   return (
     <div>
       <div className="container">
         <div className="row">
           <div className="col-sm-4 col-lg-2">
-            <Filter/>
+            <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags}/>
           </div>
           <div className="col-sm-8 col-lg-10">
             <div className="row">
