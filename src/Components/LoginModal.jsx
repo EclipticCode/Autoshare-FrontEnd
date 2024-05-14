@@ -52,7 +52,7 @@ const LoginModal = () => {
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div className="form">
+                    <div className="form formFormik">
       <Formik
         initialValues={{ username: "", password: "" }}
         validate={(values) => {
@@ -73,20 +73,20 @@ const LoginModal = () => {
           <div className="mb-2"
           onChange={handleUsername}
                   >
-            <label htmlFor="formGroupExampleInput" className="form-label">Username</label>
-            <Field id="usernameInput" name="username" type="text" className="form-control" value={formState.username}/>
+            <label htmlFor="formGroupExampleInput" className="form-label UserPass">Username</label>
+            <Field id="usernameInput" name="username" type="text" className="form-control" value={formState.username} placeholder="Enter Username"/>
             <ErrorMessage name="username" component="span" className="error" />
           </div>
 
           <div 
           onChange={handlePassword}
         >
-            <label htmlFor="formGroupExampleInput" className="form-label">Password</label>
-            <Field id="passwordInput" name="password" type="password" className="form-control" value={formState.password} />
+            <label htmlFor="formGroupExampleInput" className="form-label UserPass">Password</label>
+            <Field id="passwordInput" name="password" type="password" className="form-control" value={formState.password} placeholder="Enter Password" />
             <ErrorMessage name="password" component="span" className="error" />
           </div>
 
-          <div className="modal-footer">
+          <div className="buttons mt-4">
             <button
               type="submit"
               className="btn btn-success"
@@ -95,7 +95,7 @@ const LoginModal = () => {
               Submit
             </button>
 
-            <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+            <button type="button" className="btn btn-secondary ms-2" onClick={handleCancel}>
               Cancel
             </button>
 

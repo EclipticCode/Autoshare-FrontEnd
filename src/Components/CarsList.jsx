@@ -1,13 +1,17 @@
-import React, { useContext , useState} from "react";
-import './CarsList.css'
+import React, { useContext , useState } from "react";
+import './CarsList.css';
 import { ParamsContext } from "./Context";
 import BookingModal from "./BookingModal";
+import {useParams} from "react-router-dom"
 
 const CarsList = () => {
 
-    const { location } = useContext(ParamsContext)
+    
+    const {location} = useParams();
+
+    // const { location } = useContext(ParamsContext)
     const urlLocation = location ? location.toLowerCase() : "delhi";
-    const carsData = carDetails[urlLocation];
+    const carsData = carDetails[urlLocation] || [];
 
     const handleBookNow = (id) =>{
      console.log(id , "carID")
@@ -52,7 +56,7 @@ const CarsList = () => {
                     </span>
                     <span className="bookNow">
                       {" "}
-                      <button type="button" className="btn btn-success" data-bs-toggle="modal"
+                      <button type="button" className="btn btn-success bookNowButton" data-bs-toggle="modal"
                         data-bs-target="#staticBackdropBookNow" onClick={() => handleBookNow(id)}>
                         Book Now
                       </button>

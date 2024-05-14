@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import './RegistrationModal.css'
 
 const RegistrationModal = () => {
 
@@ -27,7 +28,7 @@ const RegistrationModal = () => {
                         aria-label="Close"
                       ></button>
                     </div>
-                    <div className="form">
+                    <div className="form formikForm">
       <Formik
         initialValues={{ username: "", password: "" , confirmPassword:"" , phoneNumber : "" , emailAddress : ""}}
         validate={(values) => {
@@ -55,43 +56,43 @@ const RegistrationModal = () => {
       >
         <Form className='mb-2'>
           <div className="username mb-2" >
-            <label htmlFor="formGroupExampleInput" className="form-label">Enter Your Name</label>
+            <label htmlFor="formGroupExampleInput" className="form-label inputsLabel">Enter Your Name</label>
             <Field id="username" name="username" type="text"className="form-control" placeholder="Enter your Name"/>
             <ErrorMessage name="username" component="span" className="error" />
           </div>
 
           <div className='mb-2' >
-            <label>Password</label>
+            <label htmlFor="formGroupExampleInput" className="form-label inputsLabel">Password</label>
             <Field id="password" name="password" type="password" className="form-control" 
             placeholder="Enter Password" />
             <ErrorMessage name="password" component="span" className="error" />
           </div>
 
           <div className='mb-2'>
-            <label>Confirm Password</label>
+            <label htmlFor="formGroupExampleInput" className="form-label inputsLabel">Confirm Password</label>
             <Field id="confirmPassword" name="confirmPassword" type="password" className="form-control"
             placeholder="Confirm Password" />
             <ErrorMessage name="confirmPassword" component="span" className="error" />
           </div>
 
           <div className='mb-2'>
-            <label>Enter Phone Number</label>
+            <label htmlFor="formGroupExampleInput" className="form-label inputsLabel">Enter Phone Number</label>
             <Field id="phoneNumber" name="phoneNumber" type="text" className="form-control"
             placeholder="Enter Phone Number" />
             <ErrorMessage name="phoneNumber" component="span" className="error" />
           </div>
 
           <div className='mb-4'>
-            <label>Enter Email Address</label>
+            <label htmlFor="formGroupExampleInput" className="form-label inputsLabel">Enter Email Address</label>
             <Field id="emailAddress" name="emailAddress" type="email" className="form-control"
             placeholder="Enter Email Address" />
             <ErrorMessage name="emailAddress" component="span" className="error" />
           </div>
 
-          <div className="modal-footer">
+          <div className="registerCancel">
             <button
               type="submit"
-              className="btn btn-success"
+              className="btn btn-success me-2"
               data-bs-dismiss="modal"
             >
               Register

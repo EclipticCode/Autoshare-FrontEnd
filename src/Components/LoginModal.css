@@ -1,9 +1,12 @@
 .error{
     color : rgb(195, 4, 4)
 }
-.form{
+.formFormik{
     margin: 20px;
 }
-.form-label{
-    color: black;
+.UserPass{
+    color: #000000;
+}
+.form-control{
+    width: 450px !important;
 }

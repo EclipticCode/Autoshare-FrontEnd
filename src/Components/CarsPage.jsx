@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CarsList from "./CarsList";
 import "./CarsPage.css";
 import Filter from "./Filter";
-import {useParams} from "react-router-dom"
+import {useParams} from "react-router-dom";
 import { ParamsProvider } from "./Context";
 
 const CarsPage = () => {

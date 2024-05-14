@@ -21,10 +21,10 @@ const App = () => {
   return (
     <div>
        <BrowserRouter>
-             <Routes>
-               <Route path='/:location' element={<BasicPage/>}></Route>
-               <Route path='*' element={<BasicPage/>}></Route>
-             </Routes>
+          <Routes>
+              <Route path='/:location' element={<BasicPage/>}></Route>
+              <Route path='*' element={<BasicPage/>}></Route>
+          </Routes>
        </BrowserRouter>
     </div>
   )
