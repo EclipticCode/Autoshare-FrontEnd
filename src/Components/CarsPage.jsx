@@ -7,6 +7,7 @@ import { ParamsProvider } from "./Context";
 
 const CarsPage = () => {
     const [filteredTags , setFilteredTags] = useState([])
+    const [filteredRatings , setFilteredRatings] = useState([])
 
     const {location = "Delhi"} = useParams();
 
@@ -15,7 +16,7 @@ const CarsPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-4 col-lg-2">
-            <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags}/>
+            <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} filteredRatings={filteredRatings} setFilteredRatings ={setFilteredRatings}/>
           </div>
           <div className="col-sm-8 col-lg-10">
             <div className="row">
@@ -53,7 +54,7 @@ const CarsPage = () => {
               </div>
             </div>
              <ParamsProvider>
-                 <CarsList />
+                 <CarsList filteredTags={filteredTags} />
              </ParamsProvider>
           </div>
         </div>

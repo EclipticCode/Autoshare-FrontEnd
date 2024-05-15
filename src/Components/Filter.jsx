@@ -15,7 +15,6 @@ const Filter = ({filteredTags , setFilteredTags}) => {
     const filteredItems = filteredTags.filter((filter) => filter!= event.target.value);
     setFilteredTags(filteredItems)
    }
-
   }
   return (
     <div>
@@ -23,7 +22,7 @@ const Filter = ({filteredTags , setFilteredTags}) => {
               className="accordion accordion-flush"
               id="accordionFlushExample"
             >
-              <div className="accordion-item">
+              {/* <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"
@@ -49,7 +48,7 @@ const Filter = ({filteredTags , setFilteredTags}) => {
                             type="checkbox"
                             value={ratings}
                             id="flexCheckDefault"
-                            onChange={handleFilterChange}
+                             onChange={handleFilterChange}
                           />
                           <label
                             className="form-check-label"
@@ -61,7 +60,7 @@ const Filter = ({filteredTags , setFilteredTags}) => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button
@@ -86,8 +85,9 @@ const Filter = ({filteredTags , setFilteredTags}) => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            value=""
+                            value={transmission}
                             id="flexCheckDefault"
+                            onChange={handleFilterChange}
                           />
                           <label
                             className="form-check-label"
@@ -124,8 +124,9 @@ const Filter = ({filteredTags , setFilteredTags}) => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            value=""
+                            value={seats}
                             id="flexCheckDefault"
+                            onChange={handleFilterChange}
                           />
                           <label
                             className="form-check-label"
@@ -162,8 +163,9 @@ const Filter = ({filteredTags , setFilteredTags}) => {
                           <input
                             className="form-check-input"
                             type="checkbox"
-                            value=""
+                            value={fuel}
                             id="flexCheckDefault"
+                            onChange={handleFilterChange}
                           />
                           <label
                             className="form-check-label"
@@ -184,7 +186,7 @@ const Filter = ({filteredTags , setFilteredTags}) => {
 export default Filter
 
 
-const ratingsFilter = ['5 Star' , '4-5 Stars' , '3-4 Stars' , 'All' ]
+const ratingsFilter = ['5' , '4.7' , '3-4 Stars' , 'All' ]
 const transmissionFilter = ['Manual' , 'Automatic' , 'Hybrid']
-const seatsFilter = [ '4/5 Seater' , '6/7 Seater']
+const seatsFilter = [ '5 Seats' , '6 Seats' , '7 Seats']
 const fuelFilter = ['Petrol' , 'Diesel']

@@ -4,25 +4,44 @@ import { ParamsContext } from "./Context";
 import BookingModal from "./BookingModal";
 import {useParams} from "react-router-dom"
 
-const CarsList = () => {
+const CarsList = ({filteredTags = []}) => {
 
     
     const {location} = useParams();
 
     // const { location } = useContext(ParamsContext)
     const urlLocation = location ? location.toLowerCase() : "delhi";
-    const carsData = carDetails[urlLocation] || [];
+    let carsData = carDetails[urlLocation] || [];
+
+    // filtered Tags 
+     carsData = carsData.filter((eachCar) => {
+
+      if (filteredTags.length === 0) {
+        return true;
+      } else {
+      for(let tag of filteredTags){
+        if(eachCar.tags.includes(tag)){
+          return true;
+        }}
+        return false;
+      }
+     })
+
+  //  sort logic
+  
+
+    const [selectedCarId , setSelectedCarId] = useState(null)
 
     const handleBookNow = (id) =>{
-     console.log(id , "carID")
+       setSelectedCarId(id)
     }
 
   return (
     <div className="container">
       <div className="row">
         {carsData.map((car, index) => {
-          const { img, carTitle, ratings, tags, trips, pricePerHour, fees , id , fastag} = car;
-          return (
+          const { id , img, carTitle, ratings, tags, trips, pricePerHour, fees } = car;
+           return (
             <div
               className="col-sm-12 col-md-8 col-lg-4 col-xl-4 justify-content-center margin"
               key={index}
@@ -67,8 +86,8 @@ const CarsList = () => {
             </div>
           );
         })}
+        <BookingModal id={selectedCarId} />
       </div>
-      <BookingModal/>
     </div>
   );
 };
@@ -114,7 +133,7 @@ const carDetails = {
         img: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Honda_Amaze_%28front%29.png/1200px-Honda_Amaze_%28front%29.png",
         carTitle: "Honda Amaze 2019",
         ratings: 4.8,
-        tags: ["Manual", "Petrol", "5 Seats"],
+        tags: ["Hybrid", "Petrol", "5 Seats"],
         trips: "20 Trips",
         pricePerHour: "₹130/hr",
         fees: "₹3,640 excluding fees",
@@ -267,7 +286,7 @@ const carDetails = {
         img: "https://imgd.aeplcdn.com//642x361//n/cw/ec/44514/renault-triber-rear-view-5.jpeg?wm=1&q=75",
         ratings: 4.4,
         carTitle: "Renault Triber 2023",
-        tags: ["Manual", "Petrol", "7 Seats"],
+        tags: ["Hybrid", "Petrol", "7 Seats"],
         trips: "33 Trips",
         pricePerHour: "₹183/hr",
         fees: "₹5,124 excluding fees ",

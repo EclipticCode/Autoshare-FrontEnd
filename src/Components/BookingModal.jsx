@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BookingModal.css";
+import axios from "axios";
 
-const BookingModal = () => {
+
+const BookingModal = ({id}) => {
+
+  const username = localStorage.getItem('login') || "" ;
+
   const [bookingDetails, setBookingDetails] = useState({
     startDate: "" ,
     endDate: "" ,
     deliveryTime: "" ,
   });
+   
 
   const handleStartDate = (event) => {
     setBookingDetails({
@@ -29,6 +34,22 @@ const BookingModal = () => {
       deliveryTime: event.target.value,
     });
   };
+
+
+  const handleSubmit = async () => {
+    const { startDate , endDate , deliveryTime } = bookingDetails;
+
+    console.log({
+      username , startDate , endDate , deliveryTime , id
+    })
+
+  //   if( startDate?.length &&  endDate?.length &&   deliveryTime?.length &&  username?.length && id ){
+  //   const apiResponse =  await axios.post (`http://localhost:4000/createBooking`, {
+  //     username , carId:id , startDate , endDate , deliveryTime
+  //    })
+  //    console.log(apiResponse.data , "apiRes")
+  //   }
+   };
   return (
     <div>
       <div
@@ -55,25 +76,29 @@ const BookingModal = () => {
               ></button>
             </div>
 
-            <div className="modal-body ms-2 h5 bookingId">Booking ID : </div>
+            <div className="modal-body ms-2 h5 bookingId">Booking ID : <span className="small" style={{color:"black"}}>{id}</span> </div>
+
             <div className="ms-4 mb-4 h6">
               Select Start Date
               <input
                 type="date"
-                className="form-control ms-10"
+                className="form-control mt-2"
                 id="datepicker"
                 onChange={handleStartDate}
+                required
               />
             </div>
 
-            <div className="ms-4 h6">
+            <div className="ms-4 h6 position-relative">
               Select End Date
               <input
                 type="date"
-                className="form-control"
-                id="datepicker"
+                className="form-control mt-2"
+                id="datepicker validationDefault02"
                 onChange={handleEndDate}
-              />
+                required 
+               /> 
+            
             </div>
 
             <div className="ms-4 mt-4 h6">Select Delivery Time</div>
@@ -120,8 +145,11 @@ const BookingModal = () => {
             </div>
 
             <div className="modal- ms-4 mt-4 mb-4">
-              <button type="button" className="btn btn-success">
-                Book Now
+              <button type="button" className="btn btn-success" onClick={() => handleSubmit()}>
+                Make a Booking
+              </button>
+              <button type="button" className="btn btn-danger ms-4">
+              Cancel Booking
               </button>
             </div>
           </div>
