@@ -5,12 +5,13 @@ import LoginModal from "./LoginModal";
 import RegistrationModal from "./RegistrationModal";
 
 const Navbar = () => {
-  const [openType, setOpenType] = useState("");
+ 
+const username = localStorage.getItem('login') || "" ;
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    setOpenLogin(true);
-  };
+const handleLogout = () => {
+  localStorage.setItem('login' , '');
+  window.location.reload();
+}
 
   const navigate = useNavigate();
   return (
@@ -58,20 +59,37 @@ const Navbar = () => {
               aria-label="Search"
               style={{"width":"500px"}}
             />
-            <button
+           {username ?
+            <>
+           <button
               className="btn btn-outline-success me-2"
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
-              Login
+            Bookings
             </button>
-            <LoginModal/>
+            <button className="btn btn-secondary" type="button" data-bs-toggle="modal"
+              data-bs-target="#staticBackdropRegister" onClick={() => {handleLogout()}}>
+              Logout
+            </button>
+           </> :
+            (<>
+             <button
+              className="btn btn-outline-success me-2"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+            >
+            Login
+            </button>
             <button className="btn btn-outline-success" type="button" data-bs-toggle="modal"
-              data-bs-target="#staticBackdropRegister">
+              data-bs-target="#staticBackdropRegister" >
               Register
             </button>
+            </>)}
             </div>
+            <LoginModal/>
             <RegistrationModal/>
           </div>
         </div>

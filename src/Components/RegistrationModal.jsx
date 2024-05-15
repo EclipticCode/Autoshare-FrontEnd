@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./RegistrationModal.css";
 import axios from 'axios';

@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./LoginModal.css";
 import axios from "axios";
 
 const LoginModal = () => {
-  
-  const handleSubmit = (values) => {
-    axios.post("http://localhost:4000/login", {
-      values,
-    });
-    console.log(values);
+
+  const handleSubmit = async (values) => {
+    const apiResponse = await axios.get(`http://localhost:4000/login/${values.username}/${values.password}`);
+    if(apiResponse.data && apiResponse.data != "Login failed"){
+      localStorage.setItem("login" , apiResponse.data)
+      window.location.reload();
+      return;
+    }
+    alert("Login failed")
   };
 
-  const handleCancel = (formik) => {
+  const handleClear = (formik) => {
     formik.resetForm();
   };
 
@@ -111,9 +114,9 @@ const LoginModal = () => {
                       <button
                         type="button"
                         className="btn btn-secondary ms-2"
-                        onClick={() => handleCancel(formik)}
+                        onClick={() => handleClear(formik)}
                       >
-                        Cancel
+                        Clear
                       </button>
                     </div>
                   </Form>
