@@ -3,7 +3,9 @@ import "./NavsTabs.css";
 
 const NavsTabs = () => {
   return (
-    <div className="navsTabs">
+    <div className="row">
+      <div className="col-md-12">
+        <div className="navsTabs">
       <ul className="nav nav-underline justify-content-center">
         <li className="nav-item me-4">
           <a className="nav-link active" aria-current="page" href="#">
@@ -12,7 +14,7 @@ const NavsTabs = () => {
         </li>
         <li className="nav-item me-4">
           <a className="nav-link cars" href="#">
-            Blogs
+            EV Zone
           </a>
         </li>
         <li className="nav-item me-4">
@@ -26,6 +28,8 @@ const NavsTabs = () => {
           </p>
         </li>
       </ul>
+    </div>
+    </div>
     </div>
   );
 };

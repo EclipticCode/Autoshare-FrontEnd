@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar'
 import NavsTabs from './Components/NavsTabs'
 import CarsPage from './Components/CarsPage'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
+import Footer from './Components/Footer'
 
 
 
@@ -13,7 +14,8 @@ const App = () => {
       <div>
         <Navbar/>
         <NavsTabs/> <br />
-        <CarsPage/>
+        <CarsPage/> <br />
+        <Footer/>
       </div>
     )
   }

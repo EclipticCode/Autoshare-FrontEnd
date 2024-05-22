@@ -4,7 +4,7 @@ import { ParamsContext } from "./Context";
 import BookingModal from "./BookingModal";
 import {useParams} from "react-router-dom"
 
-const CarsList = ({filteredTags = []}) => {
+const CarsList = ({filteredTags = [] , selectedSort}) => {
 
     
     const {location} = useParams();
@@ -29,6 +29,49 @@ const CarsList = ({filteredTags = []}) => {
 
   //  sort logic
   
+  const callback = (a,b) => {
+    const firstCar = Number(a.ratings)
+    const secondCar = Number(b.ratings)
+
+    if(firstCar > secondCar){
+      return -1 ;
+    }
+    if(firstCar < secondCar){
+      return 1 ;
+    }
+   }
+   const callbackRatingHL = (a,b) => {
+    const firstCar = Number(a.ratings)
+    const secondCar = Number(b.ratings)
+      
+    if(firstCar > secondCar){
+      return -1 ;
+    }
+      return 1 ;
+    
+   }
+   const callbackRatingLH = (a,b) => {
+    const firstCar = Number(a.ratings)
+    const secondCar = Number(b.ratings)
+      
+    if(firstCar > secondCar){
+      return 1 ;
+    }
+      return -1 ;
+    
+   }
+   if(selectedSort?.length){
+    if(selectedSort === "Ratings"){
+    carsData.sort((a,b) => callback(a,b))
+   }
+   if(selectedSort === "Ratings High to Low"){
+    carsData.sort((a,b) => callbackRatingHL(a,b))
+   }
+   if(selectedSort === "Ratings Low to High"){
+    carsData.sort((a,b) => callbackRatingLH(a,b))
+   }
+   }
+
 
     const [selectedCarId , setSelectedCarId] = useState(null)
 
@@ -43,7 +86,7 @@ const CarsList = ({filteredTags = []}) => {
           const { id , img, carTitle, ratings, tags, trips, pricePerHour, fees } = car;
            return (
             <div
-              className="col-sm-12 col-md-8 col-lg-4 col-xl-4 justify-content-center margin"
+              className="col-sm-12 col-md-8 col-lg-6 col-xl-4 justify-content-center margin"
               key={index}
             >
               <div className="card " style={{ width: "19rem" }}>
@@ -256,7 +299,7 @@ const carDetails = {
         img: "https://en.renault-club.cz/graphics/gallery/full/15773_0-578-872-0-100-http-cdni-autocarindia-com-extraimages-20160705121002-dsc-5363.jpg",
         carTitle: "Renault Lodgy 2016",
         ratings: 4.7,
-        tags: ["Manual", "Diesel", "7 Seats"],
+        tags: ["Hybrid", "Diesel", "7 Seats"],
         trips: "53 Trips",
         pricePerHour: "₹162/hr",
         fees: "₹4,536 excluding fees ",
@@ -296,7 +339,7 @@ const carDetails = {
         img: "https://feeds.abplive.com/onecms/images/uploaded-images/2022/05/28/25743e817e9f187bcf4aced22d60aae0_original.jpg",
         carTitle: "Maruti Suzuki Eeco 2022",
         ratings: 4.4,
-        tags: ["Manual", "Petrol", "7 Seats"],
+        tags: ["Manual", "Petrol", "6 Seats"],
         trips: "70 Trips",
         pricePerHour: "₹140/hr",
         fees: "₹2,920 excluding fees ",
@@ -348,7 +391,7 @@ const carDetails = {
         img: "https://5.imimg.com/data5/SELLER/Default/2023/9/341701097/SA/DR/FF/94284151/4-500x500.jpg",
         carTitle: "Tata ALTROZ 2024",
         ratings: 4.3,
-        tags: ["Manual", "Petrol", "5 Seats"],
+        tags: ["Hybrid", "Petrol", "5 Seats"],
         trips: "21 Trip",
         pricePerHour: "₹209/hr",
         fees: "₹5,852 excluding fees ",
@@ -378,7 +421,7 @@ const carDetails = {
         img: "https://feeds.abplive.com/onecms/images/uploaded-images/2023/07/20/22999c23435309146634fc0a4a0ac491168983195825019_original.jpg?impolicy=abp_cdn&imwidth=640",
         carTitle: "KIA Seltos 2022",
         ratings: 5.0,
-        tags: ["Automatic", "Diesel", "5 Seats"],
+        tags: ["Automatic", "Diesel", "6 Seats"],
         trips: "18 Trips",
         pricePerHour: "₹347/hr",
         fees: "₹9,716 excluding fees ",
@@ -408,7 +451,7 @@ const carDetails = {
         img: "https://malalaneford.co.za/wp-content/uploads/2023/02/Ecosport_Driving_Experience_PDC.webp",
         carTitle: "Ford EcoSport",
         ratings: 4.0,
-        tags: ["Manual", "Petrol", "5 Seats"],
+        tags: ["Hybrid", "Petrol", "5 Seats"],
         trips: "26 Trips",
         pricePerHour: "₹240/hr",
         fees: "₹5,776 excluding fees ",
@@ -418,7 +461,7 @@ const carDetails = {
         img: "https://www.ludhianarentacar.com/images/nissan.webp",
         carTitle: "Nissan Magnite 2022",
         ratings: 4.6,
-        tags: ["Manual", "Petrol", "5 Seats"],
+        tags: ["Automatic", "Diesel", "5 Seats"],
         trips: "117 Trips",
         pricePerHour: "₹124/hr",
         fees: "₹3,472 excluding fees ",

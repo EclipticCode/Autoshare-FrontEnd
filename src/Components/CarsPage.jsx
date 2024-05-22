@@ -7,7 +7,7 @@ import { ParamsProvider } from "./Context";
 
 const CarsPage = () => {
     const [filteredTags , setFilteredTags] = useState([])
-    const [filteredRatings , setFilteredRatings] = useState([])
+    const [selectedSort , setSelectedSort] = useState("")
 
     const {location = "Delhi"} = useParams();
 
@@ -16,7 +16,7 @@ const CarsPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-4 col-lg-2">
-            <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} filteredRatings={filteredRatings} setFilteredRatings ={setFilteredRatings}/>
+            <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
           </div>
           <div className="col-sm-8 col-lg-10">
             <div className="row">
@@ -45,16 +45,17 @@ const CarsPage = () => {
                 <select
                   className="form-select"
                   aria-label="Default select example"
+                  onChange={(e) => setSelectedSort(e.target.value)}
                 >
                   <option value="selected">Sort</option>
-                  <option value="1">Ratings</option>
-                  <option value="2">Price High to Low</option>
-                  <option value="3">Price Low to High</option>
+                  <option value="Ratings">Ratings</option>
+                  <option value="Ratings High to Low">Ratings High to Low</option>
+                  <option value="Ratings Low to High">Ratings Low to High</option>
                 </select>
               </div>
             </div>
              <ParamsProvider>
-                 <CarsList filteredTags={filteredTags} />
+                 <CarsList filteredTags={filteredTags} selectedSort = {selectedSort}/>
              </ParamsProvider>
           </div>
         </div>

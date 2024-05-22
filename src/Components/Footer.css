@@ -1,0 +1,23 @@
+.cardFooter{
+    height: 300px;
+    color: rgba(2, 138, 114, 1);
+    background-color: rgb(210, 210, 210);
+    /* display: flex; */
+    align-items: center;
+    font-weight: bold;
+}
+.qrImage{
+    margin-top: 40px;
+    align-items: center;
+  
+}
+.downloadApp{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-size: x-large;
+}
+.scanQR{
+    font-size:12px ;
+    
+}
