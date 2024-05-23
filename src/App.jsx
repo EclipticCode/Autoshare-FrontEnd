@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Components/Navbar'
 import NavsTabs from './Components/NavsTabs'
 import CarsPage from './Components/CarsPage'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import Footer from './Components/Footer'
+import { SearchProvider } from './Components/Context'
 
 
 
 const App = () => {
   
   const BasicPage = () => {
+
     return (
-      <div>
+      
+        <SearchProvider>
+          <div>
         <Navbar/>
         <NavsTabs/> <br />
         <CarsPage/> <br />
         <Footer/>
-      </div>
+        </div>
+        </SearchProvider>
     )
   }
 

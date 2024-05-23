@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import RegistrationModal from "./RegistrationModal";
+import { SearchContext } from "./Context";
 
 const Navbar = () => {
  
@@ -13,7 +14,15 @@ const handleLogout = () => {
   window.location.reload();
 }
 
+ const { searchedCar , setSearchedCar } = useContext(SearchContext)
+
+const handleNameChange = (event) => {
+    setSearchedCar(event.target.value)
+    console.log(event.target.value)
+}
+
   const navigate = useNavigate();
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -58,6 +67,7 @@ const handleLogout = () => {
               placeholder="Search"
               aria-label="Search"
               style={{"width":"500px"}}
+              onChange={(e) => {setSearchedCar(e.target.value)}}
             />
            {username ?
             <>

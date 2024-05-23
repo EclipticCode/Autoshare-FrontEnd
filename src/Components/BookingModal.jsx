@@ -43,13 +43,13 @@ const BookingModal = ({id}) => {
       username , startDate , endDate , deliveryTime , id
     })
 
-  //   if( startDate?.length &&  endDate?.length &&   deliveryTime?.length &&  username?.length && id ){
-  //   const apiResponse =  await axios.post (`http://localhost:4000/createBooking`, {
-  //     username , carId:id , startDate , endDate , deliveryTime
-  //    })
-  //    console.log(apiResponse.data , "apiRes")
-  //   }
-   };
+    // if( startDate?.length &&  endDate?.length &&   deliveryTime?.length &&  username?.length && id ){
+    // const apiResponse =  await axios.post (`http://localhost:4000/createBooking`, {
+    //   username , carId:id , startDate , endDate , deliveryTime
+    //  })
+    //  console.log(apiResponse.data , "apiRes")
+    // }
+  };
   return (
     <div>
       <div

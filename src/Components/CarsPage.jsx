@@ -3,7 +3,7 @@ import CarsList from "./CarsList";
 import "./CarsPage.css";
 import Filter from "./Filter";
 import {useParams} from "react-router-dom";
-import { ParamsProvider } from "./Context";
+
 
 const CarsPage = () => {
     const [filteredTags , setFilteredTags] = useState([])
@@ -54,9 +54,7 @@ const CarsPage = () => {
                 </select>
               </div>
             </div>
-             <ParamsProvider>
                  <CarsList filteredTags={filteredTags} selectedSort = {selectedSort}/>
-             </ParamsProvider>
           </div>
         </div>
       </div>
