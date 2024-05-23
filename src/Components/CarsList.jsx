@@ -5,6 +5,8 @@ import BookingModal from "./BookingModal";
 import { useParams } from "react-router-dom";
 
 const CarsList = ({ filteredTags = [], selectedSort }) => {
+
+  const [slicedValue , setSlicedValue] = useState(6)
    
   const { searchedCar } = useContext(SearchContext)
   const { location } = useParams();
@@ -90,7 +92,7 @@ if(searchedCar?.length){
   return (
     <div className="container">
       <div className="row">
-        {carsData.map((car, index) => {
+        {carsData.slice(0,slicedValue).map((car, index) => {
           const {
             id,
             img,
@@ -159,6 +161,21 @@ if(searchedCar?.length){
             </div>
           );
         })}
+       
+            <div
+              className="col-sm-12 col-md-8 col-lg-6 col-xl-4 justify-content-center margin"
+              onClick={()=>{setSlicedValue(slicedValue+5)}}
+            >
+              <div className="card loadmore " style={{ width: "19rem" }}>
+                <img
+                  src={'https://www.pngitem.com/pimgs/m/387-3871908_button-view-more-png-transparent-png.png'}
+                  className="card-img-top img-fluid"
+                  alt="car image"
+                  style={{ height: "125px" }}
+                />
+              </div>
+            </div>
+        
         <BookingModal id={selectedCarId} />
       </div>
     </div>
