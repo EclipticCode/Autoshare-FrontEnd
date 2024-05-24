@@ -1,6 +1,9 @@
 .navbar-brand{
     color: #028a72;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar-expand-lg{
+  font-family: 'Satoshi' , sans-serif;
 }
 .form-select{
     width:200px !important;
@@ -10,10 +13,11 @@
     width: 600px;
 }
 .autoshare{
+    font-family:Georgia, 'Times New Roman', Times, serif ;
     border: 2px solid rgb(163, 163, 163);
     padding: 4px;
     border-radius: 8px;
     color: white !important;
-    background: linear-gradient(270deg , #00715ca2 , #045949);
+    background: linear-gradient(270deg , #097c67cb , #064338f9);
 }
 

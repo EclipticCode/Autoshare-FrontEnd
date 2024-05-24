@@ -9,6 +9,9 @@
     color:rgb(166, 166, 166)
 }
 .mainLocation{
-     color: rgba(2, 138, 114, 1); 
+    color: rgba(2, 138, 114, 1); 
     font-weight: 500;
+}
+.container{
+    font-family: "Satoshi" , sans-serif;
 }
