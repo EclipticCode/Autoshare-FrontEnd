@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import RegistrationModal from "./RegistrationModal";
 import { SearchContext } from "./Context";
+import iconImg from '../assets/Icon.png'
 
 const Navbar = () => {
  
@@ -28,7 +29,7 @@ const handleNameChange = (event) => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <p className="navbar-brand autoshare mt-3" >
-            Auto<span className="h3"><img src="./public/Icon.png" alt="" /></span>hare
+            Auto<span className="h3"><img src={iconImg} /></span>hare
           </p>
           <button
             className="navbar-toggler"
