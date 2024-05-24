@@ -4,32 +4,36 @@ import { useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal";
 import RegistrationModal from "./RegistrationModal";
 import { SearchContext } from "./Context";
-import iconImg from '../assets/Icon.png'
+import iconImg from "../assets/Icon.png";
 
 const Navbar = () => {
- 
-const username = localStorage.getItem('login') || "" ;
+  const username = localStorage.getItem("login") || "";
 
-const handleLogout = () => {
-  localStorage.setItem('login' , '');
-  window.location.reload();
-}
+  const handleLogout = () => {
+    localStorage.setItem("login", "");
+    window.location.reload();
+  };
 
- const { searchedCar , setSearchedCar } = useContext(SearchContext)
+  const { searchedCar, setSearchedCar } = useContext(SearchContext);
 
-const handleNameChange = (event) => {
-    setSearchedCar(event.target.value)
-    console.log(event.target.value)
-}
+  const handleNameChange = (event) => {
+    setSearchedCar(event.target.value);
+    console.log(event.target.value);
+  };
 
   const navigate = useNavigate();
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    
         <div className="container-fluid">
-          <p className="navbar-brand autoshare mt-3" >
-            Auto<span className="h3"><img src={iconImg} /></span>hare
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <p className="navbar-brand autoshare mt-3">
+            Auto
+            <span className="h3">
+              <img src={iconImg} />
+            </span>
+            hare
           </p>
           <button
             className="navbar-toggler"
@@ -62,49 +66,65 @@ const handleNameChange = (event) => {
               </li>
             </ul>
             <div className="d-flex" role="search">
-            <input
-              className="form-control me-4"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              style={{"width":"500px"}}
-              onChange={(e) => {setSearchedCar(e.target.value)}}
-            />
-           {username ?
-            <>
-           <button
-              className="btn btn-outline-success me-2"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-            >
-            Bookings
-            </button>
-            <button className="btn btn-secondary" type="button" data-bs-toggle="modal"
-              data-bs-target="#staticBackdropRegister" onClick={() => {handleLogout()}}>
-              Logout
-            </button>
-           </> :
-            (<>
-             <button
-              className="btn btn-outline-success me-2"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-            >
-            Login
-            </button>
-            <button className="btn btn-outline-success" type="button" data-bs-toggle="modal"
-              data-bs-target="#staticBackdropRegister" >
-              Register
-            </button>
-            </>)}
+              <input
+                className="form-control me-4"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                style={{ width: "500px" }}
+                onChange={(e) => {
+                  setSearchedCar(e.target.value);
+                }}
+              />
+              {username ? (
+                <>
+                  <button
+                    className="btn btn-outline-success me-2"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Bookings
+                  </button>
+                  <button
+                    className="btn btn-secondary"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdropRegister"
+                    onClick={() => {
+                      handleLogout();
+                    }}
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    className="btn btn-outline-success me-2"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Login
+                  </button>
+                  <button
+                    className="btn btn-outline-success"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdropRegister"
+                  >
+                    Register
+                  </button>
+                </>
+              )}
             </div>
-            <LoginModal/>
-            <RegistrationModal/>
+            <LoginModal />
+            <RegistrationModal />
           </div>
+          </nav>
         </div>
-      </nav>
+   
     </div>
   );
 };

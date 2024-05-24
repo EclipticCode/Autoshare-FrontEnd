@@ -3,7 +3,8 @@ import "./NavsTabs.css";
 
 const NavsTabs = () => {
   return (
-    <div className="row">
+   <div className="container-fluid">
+     <div className="row">
       <div className="col-md-12">
         <div className="navsTabs">
       <ul className="nav nav-underline justify-content-center">
@@ -31,6 +32,7 @@ const NavsTabs = () => {
     </div>
     </div>
     </div>
+   </div>
   );
 };
 

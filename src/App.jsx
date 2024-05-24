@@ -18,7 +18,7 @@ const App = () => {
           <div>
         <Navbar/>
         <NavsTabs/> <br />
-        <CarsPage/> <br />
+        <CarsPage/> <br /> <br />
         <Footer/>
         </div>
         </SearchProvider>

@@ -5,13 +5,16 @@ const Footer = () => {
     return (
         <div className='container-fluid cardFooter'>
             <div className="row">
-                <div className="col qrImage">
+                <div className="col-md-4 qrImage">
                 <img src='./public/images.png'/>
                 <p className='scanQR'>Scan this QR code to download the app !</p>
                 </div>
-                {/* <div className="col downloadApp">
-                   <div> Click here to download app</div>
-                </div> */}
+                <div className="col-md-8 citiesList ">
+                   <div className="row">
+                   <h5 className='heading'>We are also available in the following Cities</h5>
+                   <ul className='cities'>{metropolitanCities.map((city , index) =><li key={index}>Self Drive Cars in {city}</li>)}</ul>
+                   </div>
+                </div>
             </div>
             <hr/>
 
@@ -20,3 +23,10 @@ const Footer = () => {
 }
 
 export default Footer
+
+const metropolitanCities = [ 'Bangalore', 'Hyderabad',
+    'Ahmedabad',  'Kolkata', 'Surat', 
+    'Pune', 'Jaipur', 'Lucknow', 'Kanpur', 
+    'Nagpur', 'Indore', 'Thane', 'Bhopal', 
+    'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad'
+];

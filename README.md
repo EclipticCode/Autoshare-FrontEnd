@@ -1,8 +1,57 @@
-# React + Vite
+# AutoShare
+- AutoShare is a Car rental application designed to facilitate car rentals and sharing services.This repository contains the front-end code for the AutoShare app.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Table of Contents
+- About the Project
+- Features
+- Tech Stack
+- Usage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## About the Project
+AutoShare aims to provide a seamless car rental experience. Users can browse available cars, book them, and manage their rentals through an intuitive interface.
+
+
+## Features
+- Browse and search for available cars
+- Book , manage and cancel rentals
+- Filter cars using their transmission , seats and fuel type
+- Sort the cars from ratings either high to low or low to high
+
+
+## Folder Structure
+autoshare-frontend/   
+├── public/   
+├── src/   
+│   ├── assets/   
+│   ├── Components/   
+│   ├── App.jsx   
+│   ├── main.jsx      
+│       
+├── .gitignore   
+├── index.html   
+├── package.json   
+├── README.md   
+
+
+## Tech Stack
+
+### Front-End
+- HTML5
+- CSS3
+- Javascript
+- React
+
+
+## Installation 
+To geta local copy up and running , follow these steps:
+
+### Prerequisites
+- Node.js and npm installed
+- Git installed 
+
+### Clone the Repository
+Step 1 : git clone https://github.com/EclipticCode/Autoshare-FrontEnd   
+Step 2 : npm install   
+Step 3 : npm run dev
