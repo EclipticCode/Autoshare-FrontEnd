@@ -27,9 +27,9 @@ const handleNameChange = (event) => {
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <a className="navbar-brand autoshare" href="#" style={{color : "#028a72"}}>
-            AutoShare
-          </a>
+          <p className="navbar-brand autoshare mt-3" >
+            Auto<span className="h3"><img src="./public/Icon.png" alt="" /></span>hare
+          </p>
           <button
             className="navbar-toggler"
             type="button"

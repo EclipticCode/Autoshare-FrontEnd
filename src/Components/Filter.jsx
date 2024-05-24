@@ -22,45 +22,6 @@ const Filter = ({filteredTags , setFilteredTags}) => {
               className="accordion accordion-flush"
               id="accordionFlushExample"
             >
-              {/* <div className="accordion-item">
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseOne"
-                  >
-                    Ratings
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseOne"
-                  className="accordion-collapse collapse"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div className="accordion-body">
-                    {ratingsFilter.map((ratings , index) => (
-                          <div className="form-check" key={index}>
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value={ratings}
-                            id="flexCheckDefault"
-                             onChange={handleFilterChange}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="flexCheckDefault"
-                          >
-                            {ratings}
-                          </label>
-                        </div>
-                    ))}
-                  </div>
-                </div>
-              </div> */}
               <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button

@@ -1,5 +1,5 @@
 .navbar-brand{
-    color: rgba(2, 138, 114, 1);
+    color: #028a72;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .form-select{
@@ -9,3 +9,11 @@
 .form-control{
     width: 600px;
 }
+.autoshare{
+    border: 2px solid rgb(163, 163, 163);
+    padding: 4px;
+    border-radius: 8px;
+    color: white !important;
+    background: linear-gradient(270deg , #00715ca2 , #045949);
+}
+
