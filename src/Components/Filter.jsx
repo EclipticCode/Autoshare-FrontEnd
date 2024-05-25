@@ -147,7 +147,6 @@ const Filter = ({filteredTags , setFilteredTags}) => {
 export default Filter
 
 
-const ratingsFilter = ['5' , '4.7' , '3-4 Stars' , 'All' ]
 const transmissionFilter = ['Manual' , 'Automatic' , 'Hybrid']
 const seatsFilter = [ '5 Seats' , '6 Seats' , '7 Seats']
 const fuelFilter = ['Petrol' , 'Diesel']

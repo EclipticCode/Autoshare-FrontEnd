@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 const CarsList = ({ filteredTags = [], selectedSort }) => {
 
+  const [slicedValue , setSlicedValue] = useState(6)
    
   const { searchedCar } = useContext(SearchContext)
   const { location } = useParams();
