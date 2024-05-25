@@ -14,10 +14,10 @@
 }
 .autoshare{
     font-family:Georgia, 'Times New Roman', Times, serif ;
-    border: 2px solid rgb(163, 163, 163);
+    border: 2px solid #a3a3a3;
     padding: 4px;
     border-radius: 8px;
-    color: white !important;
-    background: linear-gradient(270deg , #097c67cb , #064338f9);
+    color: #ffffff !important;
+    background: linear-gradient(270deg , #04856dcb , #025d4cf9);
 }
 

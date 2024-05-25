@@ -1,8 +1,7 @@
 .cardFooter{
     height: 300px;
     color: #028a72;
-    background-color: rgb(210, 210, 210);
-    /* display: flex; */
+    background-color: #d2d2d2;
     align-items: center;
 }
 .qrImage{

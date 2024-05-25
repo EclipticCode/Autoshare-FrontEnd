@@ -1,13 +1,13 @@
 .accordion{
-    box-shadow: 0px 2px 4px rgb(0,0,0,0.2);
-    border: 1px solid  rgb(195, 195, 195);
+    box-shadow: 0px 2px 4px #00000033;
+    border: 1px solid  #c3c3c3;
 }
 .accordion-button:focus , .accordion-button:hover  {
     background-color: transparent;
-    color:black;
+    color:#000000;
 }
 .accordion-button{
     background-color: transparent !important;
     border: none;
-    color: black;
+    color: #000000;
 }

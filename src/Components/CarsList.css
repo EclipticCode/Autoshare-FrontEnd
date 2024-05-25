@@ -3,7 +3,7 @@
     top: 15px;
     right: 15px;
     background-color: #028a72;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     border-radius: 2px;
     height: 20px;
     width: 40px;
@@ -13,7 +13,7 @@
     display: flex;
 }
 .badge{
-    background-color: rgb(255, 207, 177);
+    background-color: #ffcfb1;
     font-weight: lighter;
     font-size: small;
 }
@@ -21,14 +21,14 @@
     color:#028a72;
 }
 .fees{
-    color: rgb(146, 145, 145);
+    color: #929191;
     font-size: small;
     text-decoration: underline;
 }
 .card{
     cursor: pointer;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgb(166, 166, 166) !important;
+    box-shadow: 0px 2px 4px #0000004d;
+    border: 1px solid #a6a6a6 !important;
 }
 .bi-car-front{
     margin-right: 5px;
@@ -58,9 +58,12 @@
 .bookNowButton:hover{
   background-color: #026c59;
   transform: scale(1.1);
-  font-weight: 600;
+  font-weight: 500;
 }
 .loadmore{
     border: none;
     box-shadow: none;
+}
+.card-title{
+    font-weight: 400;
 }
