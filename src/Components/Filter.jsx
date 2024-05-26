@@ -1,5 +1,7 @@
 import React from 'react'
 import './Filter.css'
+import { transmissionFilter , seatsFilter , fuelFilter } from './constants'
+
 
 const Filter = ({filteredTags , setFilteredTags}) => {
 
@@ -147,6 +149,3 @@ const Filter = ({filteredTags , setFilteredTags}) => {
 export default Filter
 
 
-const transmissionFilter = ['Manual' , 'Automatic' , 'Hybrid']
-const seatsFilter = [ '5 Seats' , '6 Seats' , '7 Seats']
-const fuelFilter = ['Petrol' , 'Diesel']

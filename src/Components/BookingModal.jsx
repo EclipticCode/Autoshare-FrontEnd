@@ -4,18 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./BookingModal.css";
 import axios from "axios";
 
-
-const BookingModal = ({id}) => {
-
-  const username = localStorage.getItem('login') || "" ;
+const BookingModal = ({ id }) => {
+  const username = localStorage.getItem("login") || "";
 
   const [bookingDetails, setBookingDetails] = useState({
-    startDate: "" ,
-    endDate: "" ,
-    deliveryTime: "" ,
+    startDate: "",
+    endDate: "",
+    deliveryTime: "",
   });
-   
-  const [isFormValid , setIsFormValid] = useState(false)
+
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const handleStartDate = (event) => {
     setBookingDetails({
@@ -38,33 +36,40 @@ const BookingModal = ({id}) => {
 
   const resetButton = () => {
     setBookingDetails({
-      startDate: "" ,
-      endDate: "" ,
-      deliveryTime: ""
-    })
-  }
+      startDate: "",
+      endDate: "",
+      deliveryTime: "",
+    });
+  };
   useEffect(() => {
-    const { startDate , endDate , deliveryTime } = bookingDetails;
+    const { startDate, endDate, deliveryTime } = bookingDetails;
     setIsFormValid(startDate && endDate && deliveryTime);
-  } , [bookingDetails])
-
+  }, [bookingDetails]);
 
   const handleSubmit = async () => {
-    const { startDate , endDate , deliveryTime } = bookingDetails;
+    const { startDate, endDate, deliveryTime } = bookingDetails;
 
- console.log({
-      username , startDate , endDate , deliveryTime , id
-    })
-   
-    if( startDate?.length &&  endDate?.length &&   deliveryTime?.length &&  username?.length && id?.length ){
-    const apiResponse =  await axios.post (`http://localhost:4000/createBooking`, {
-      username , id , startDate , endDate , deliveryTime
-     })
-     
-     if(apiResponse.data?._id){
-      alert("Booking Confirmed")
-     }
-     console.log(apiResponse.data , "apiRes")
+    if (
+      startDate?.length &&
+      endDate?.length &&
+      deliveryTime?.length &&
+      username?.length &&
+      id?.length
+    ) {
+      const apiResponse = await axios.post(
+        `http://localhost:4000/createBooking`,
+        {
+          username,
+          id,
+          startDate,
+          endDate,
+          deliveryTime,
+        }
+      );
+
+      if (apiResponse.data?._id) {
+        alert("Booking Confirmed");
+      }
     }
   };
   return (
@@ -93,7 +98,12 @@ const BookingModal = ({id}) => {
               ></button>
             </div>
 
-            <div className="modal-body ms-2 h5 bookingId">Booking ID : <span className="small" style={{color:"black"}}>{id}</span> </div>
+            <div className="modal-body ms-2 h5 bookingId">
+              Booking ID :{" "}
+              <span className="small" style={{ color: "black" }}>
+                {id}
+              </span>{" "}
+            </div>
 
             <div className="ms-4 mb-4 h6">
               Select Start Date
@@ -114,8 +124,7 @@ const BookingModal = ({id}) => {
                 id="datepicker validationDefault02"
                 onChange={handleEndDate}
                 value={bookingDetails.endDate}
-               /> 
-            
+              />
             </div>
 
             <div className="ms-4 mt-4 h6">Select Delivery Time</div>
@@ -126,9 +135,9 @@ const BookingModal = ({id}) => {
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
-                value="Morning(9AM - 12PM)" 
+                value="Morning(9AM - 12PM)"
                 onChange={handleTimeChange}
-                checked={bookingDetails.deliveryTime === "Morning(9AM - 12PM)" }
+                checked={bookingDetails.deliveryTime === "Morning(9AM - 12PM)"}
               />
               <label className="form-check-label" htmlFor="flexRadioDefault1">
                 Morning (9AM - 12PM)
@@ -142,7 +151,9 @@ const BookingModal = ({id}) => {
                 id="flexRadioDefault2"
                 value="Afternoon (12PM - 4PM)"
                 onChange={handleTimeChange}
-                checked={bookingDetails.deliveryTime === "Afternoon (12PM - 4PM)"}
+                checked={
+                  bookingDetails.deliveryTime === "Afternoon (12PM - 4PM)"
+                }
               />
               <label className="form-check-label" htmlFor="flexRadioDefault2">
                 Afternoon (12PM - 4PM)
@@ -165,10 +176,19 @@ const BookingModal = ({id}) => {
             </div>
 
             <div className="modal- ms-4 mt-4 mb-4">
-              <button type="button" className="btn btn-success" onClick={() => handleSubmit()} disabled={!isFormValid}>
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={() => handleSubmit()}
+                disabled={!isFormValid}
+              >
                 Make a Booking
               </button>
-              <button type="button" className="btn btn-danger ms-4" onClick={() => resetButton()}>
+              <button
+                type="button"
+                className="btn btn-danger ms-4"
+                onClick={() => resetButton()}
+              >
                 Reset
               </button>
             </div>
