@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BookingModal.css";
@@ -15,6 +15,7 @@ const BookingModal = ({id}) => {
     deliveryTime: "" ,
   });
    
+  const [isFormValid , setIsFormValid] = useState(false)
 
   const handleStartDate = (event) => {
     setBookingDetails({
@@ -35,20 +36,36 @@ const BookingModal = ({id}) => {
     });
   };
 
+  const resetButton = () => {
+    setBookingDetails({
+      startDate: "" ,
+      endDate: "" ,
+      deliveryTime: ""
+    })
+  }
+  useEffect(() => {
+    const { startDate , endDate , deliveryTime } = bookingDetails;
+    setIsFormValid(startDate && endDate && deliveryTime);
+  } , [bookingDetails])
+
 
   const handleSubmit = async () => {
     const { startDate , endDate , deliveryTime } = bookingDetails;
 
-    console.log({
+ console.log({
       username , startDate , endDate , deliveryTime , id
     })
-
-    // if( startDate?.length &&  endDate?.length &&   deliveryTime?.length &&  username?.length && id ){
-    // const apiResponse =  await axios.post (`http://localhost:4000/createBooking`, {
-    //   username , carId:id , startDate , endDate , deliveryTime
-    //  })
-    //  console.log(apiResponse.data , "apiRes")
-    // }
+   
+    if( startDate?.length &&  endDate?.length &&   deliveryTime?.length &&  username?.length && id?.length ){
+    const apiResponse =  await axios.post (`http://localhost:4000/createBooking`, {
+      username , id , startDate , endDate , deliveryTime
+     })
+     
+     if(apiResponse.data?._id){
+      alert("Booking Confirmed")
+     }
+     console.log(apiResponse.data , "apiRes")
+    }
   };
   return (
     <div>
@@ -85,7 +102,7 @@ const BookingModal = ({id}) => {
                 className="form-control mt-2"
                 id="datepicker"
                 onChange={handleStartDate}
-                required
+                value={bookingDetails.startDate}
               />
             </div>
 
@@ -96,7 +113,7 @@ const BookingModal = ({id}) => {
                 className="form-control mt-2"
                 id="datepicker validationDefault02"
                 onChange={handleEndDate}
-                required 
+                value={bookingDetails.endDate}
                /> 
             
             </div>
@@ -109,8 +126,9 @@ const BookingModal = ({id}) => {
                 type="radio"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
-                value="Morning(9AM - 12PM)"
+                value="Morning(9AM - 12PM)" 
                 onChange={handleTimeChange}
+                checked={bookingDetails.deliveryTime === "Morning(9AM - 12PM)" }
               />
               <label className="form-check-label" htmlFor="flexRadioDefault1">
                 Morning (9AM - 12PM)
@@ -124,6 +142,7 @@ const BookingModal = ({id}) => {
                 id="flexRadioDefault2"
                 value="Afternoon (12PM - 4PM)"
                 onChange={handleTimeChange}
+                checked={bookingDetails.deliveryTime === "Afternoon (12PM - 4PM)"}
               />
               <label className="form-check-label" htmlFor="flexRadioDefault2">
                 Afternoon (12PM - 4PM)
@@ -138,6 +157,7 @@ const BookingModal = ({id}) => {
                 id="flexRadioDefault3"
                 value="Evening (4PM - 7PM)"
                 onChange={handleTimeChange}
+                checked={bookingDetails.deliveryTime === "Evening (4PM - 7PM)"}
               />
               <label className="form-check-label" htmlFor="flexRadioDefault3">
                 Evening (4PM - 7PM)
@@ -145,11 +165,11 @@ const BookingModal = ({id}) => {
             </div>
 
             <div className="modal- ms-4 mt-4 mb-4">
-              <button type="button" className="btn btn-success" onClick={() => handleSubmit()}>
+              <button type="button" className="btn btn-success" onClick={() => handleSubmit()} disabled={!isFormValid}>
                 Make a Booking
               </button>
-              <button type="button" className="btn btn-danger ms-4">
-              Cancel Booking
+              <button type="button" className="btn btn-danger ms-4" onClick={() => resetButton()}>
+                Reset
               </button>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { SearchContext } from "./Context";
 import iconImg from "../assets/Icon.png";
 
 const Navbar = () => {
+  
   const username = localStorage.getItem("login") || "";
 
   const handleLogout = () => {

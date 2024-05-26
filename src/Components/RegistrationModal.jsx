@@ -9,7 +9,6 @@ const RegistrationModal = () => {
     axios.post("http://localhost:4000/registration", {
       values,
     });
-   console.log(values)
   }
 
   const handleClear = (formik) => {
