@@ -25,7 +25,6 @@ const handleCancelBooking = (bookingId) => {
     axios.put(`${apiUrl}/cancelBooking/${username}/${bookingId}`)
     .then(response => {
         if(response.data){
-            console.log(response.data)
             if(response.data === "Booking cancelled successfully"){
                 alert("Booking cancelled")
             }

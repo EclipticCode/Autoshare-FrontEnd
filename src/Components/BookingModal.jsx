@@ -48,6 +48,7 @@ const BookingModal = ({ id }) => {
   }, [bookingDetails]);
 
   const handleSubmit = async () => {
+   
     const { startDate, endDate, deliveryTime } = bookingDetails;
 
     if (
@@ -72,6 +73,11 @@ const BookingModal = ({ id }) => {
         alert("Booking Confirmed");
       }
     }
+    setBookingDetails({
+      startDate: "",
+      endDate: "",
+      deliveryTime: "",
+    });
   };
   return (
     <div>
