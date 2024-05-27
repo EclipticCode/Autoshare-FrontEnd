@@ -1,14 +1,14 @@
 import React from 'react'
 import './Footer.css'
 import { metropolitanCities } from './constants'
-
+import img from '../assets/images.png'
 
 const Footer = () => {
     return (
         <div className='container-fluid cardFooter'>
             <div className="row">
                 <div className="col-md-4 qrImage">
-                <img src='./public/images.png'/>
+                <img src={img}/>
                 <p className='scanQR'>Scan this QR code to download the app !</p>
                 </div>
                 <div className="col-md-8 citiesList ">
