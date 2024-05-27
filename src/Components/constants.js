@@ -1,10 +1,14 @@
+export const apiUrl = `http://localhost:4000`
 export const transmissionFilter = ['Manual' , 'Automatic' , 'Hybrid']
 export const seatsFilter = [ '5 Seats' , '6 Seats' , '7 Seats']
 export const fuelFilter = ['Petrol' , 'Diesel']
 
-
-
-
+export const metropolitanCities = [ 'Bangalore', 'Hyderabad',
+    'Ahmedabad',  'Kolkata', 'Surat', 
+    'Pune', 'Jaipur', 'Lucknow', 'Kanpur', 
+    'Nagpur', 'Indore', 'Thane', 'Bhopal', 
+    'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad'
+];
 
 
 

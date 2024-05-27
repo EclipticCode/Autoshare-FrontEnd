@@ -2,17 +2,18 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./LoginModal.css";
 import axios from "axios";
+import { apiUrl } from "./constants";
 
 const LoginModal = () => {
 
   const handleSubmit = async (values) => {
-    const apiResponse = await axios.get(`http://localhost:4000/login/${values.username}/${values.password}`);
+    const apiResponse = await axios.get(`${apiUrl}/login/${values.username}/${values.password}`);
     if(apiResponse.data && apiResponse.data != "Login failed"){
       localStorage.setItem("login" , apiResponse.data)
       window.location.reload();
       return;
     }
-    alert("Login failed")
+    alert("Invalid Username or Password")
   };
 
   const handleClear = (formik) => {

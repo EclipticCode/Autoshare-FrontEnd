@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BookingModal.css";
 import axios from "axios";
+import { apiUrl } from "./constants";
 
 const BookingModal = ({ id }) => {
   const username = localStorage.getItem("login") || "";
@@ -57,7 +58,7 @@ const BookingModal = ({ id }) => {
       id?.length
     ) {
       const apiResponse = await axios.post(
-        `http://localhost:4000/createBooking`,
+        `${apiUrl}/createBooking`,
         {
           username,
           id,
@@ -104,7 +105,6 @@ const BookingModal = ({ id }) => {
                 {id}
               </span>{" "}
             </div>
-
             <div className="ms-4 mb-4 h6">
               Select Start Date
               <input

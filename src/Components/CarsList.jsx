@@ -71,8 +71,7 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
     }
   }
 
-
-  const handleBookNow = (id) => {
+const handleBookNow = (id) => {
     setSelectedCarId(id);
   };
 
@@ -160,7 +159,7 @@ if(searchedCar?.length){
             </div>
           );
         })}
-        <BookingModal id={selectedCarId} />
+        <BookingModal id={selectedCarId}/>
       </div>
     </div>
   );

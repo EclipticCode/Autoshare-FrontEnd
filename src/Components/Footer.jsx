@@ -1,5 +1,7 @@
 import React from 'react'
 import './Footer.css'
+import { metropolitanCities } from './constants'
+
 
 const Footer = () => {
     return (
@@ -24,9 +26,3 @@ const Footer = () => {
 
 export default Footer
 
-const metropolitanCities = [ 'Bangalore', 'Hyderabad',
-    'Ahmedabad',  'Kolkata', 'Surat', 
-    'Pune', 'Jaipur', 'Lucknow', 'Kanpur', 
-    'Nagpur', 'Indore', 'Thane', 'Bhopal', 
-    'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad'
-];

@@ -5,9 +5,10 @@ import LoginModal from "./LoginModal";
 import RegistrationModal from "./RegistrationModal";
 import { SearchContext } from "./Context";
 import iconImg from "../assets/Icon.png";
+import MyBookingsModal from "./MyBookingsModal";
 
 const Navbar = () => {
-  
+
   const username = localStorage.getItem("login") || "";
 
   const handleLogout = () => {
@@ -83,10 +84,11 @@ const Navbar = () => {
                     className="btn btn-outline-success me-2"
                     type="button"
                     data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
+                    data-bs-target="#staticBackdropBookings"
                   >
-                    Bookings
+                    My Bookings
                   </button>
+
                   <button
                     className="btn btn-secondary"
                     type="button"
@@ -120,6 +122,7 @@ const Navbar = () => {
                 </>
               )}
             </div>
+           <MyBookingsModal/>
             <LoginModal />
             <RegistrationModal />
           </div>
@@ -129,5 +132,6 @@ const Navbar = () => {
     </div>
   );
 };
+
 
 export default Navbar;

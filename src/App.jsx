@@ -7,7 +7,6 @@ import Footer from './Components/Footer'
 import { SearchProvider } from './Components/Context'
 
 
-
 const App = () => {
   
   const BasicPage = () => {

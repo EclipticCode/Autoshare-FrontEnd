@@ -2,11 +2,13 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./RegistrationModal.css";
 import axios from 'axios';
+import { apiUrl } from "./constants";
+
 
 const RegistrationModal = () => {
 
   const handleSubmit = (values) => {
-    axios.post("http://localhost:4000/registration", {
+    axios.post(`${apiUrl}/registration`, {
       values,
     });
   }
