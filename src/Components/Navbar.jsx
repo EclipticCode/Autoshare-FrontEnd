@@ -67,6 +67,7 @@ const Navbar = () => {
                 </select>
               </li>
             </ul>
+           
             <div className="d-flex" role="search">
               <input
                 className="form-control me-4"
@@ -119,6 +120,7 @@ const Navbar = () => {
                   </button>
                 </>
               )}
+             
             </div>
            <MyBookingsModal/>
             <LoginModal />

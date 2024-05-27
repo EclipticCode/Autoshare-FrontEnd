@@ -4,6 +4,7 @@ import "./CarsList.css";
 import BookingModal from "./BookingModal";
 import { useParams } from "react-router-dom";
 import { carDetails } from "./constants";
+import AlertModal from "./AlertModal";
 
 const CarsList = ({ filteredTags = [], selectedSort }) => {
    
@@ -11,8 +12,11 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
   const { location } = useParams();
   const urlLocation = location ? location.toLowerCase() : "delhi";
   const [selectedCarId, setSelectedCarId] = useState(null);
+ 
 
   let carsData = carDetails[urlLocation] || [];
+  
+  const username = localStorage.getItem("login")
 
   // filtered Tags
   carsData = carsData.filter((eachCar) => {
@@ -72,6 +76,11 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
   }
 
 const handleBookNow = (id) => {
+
+    if(!username){
+     alert("Please login to make a booking")
+      return;
+    }
     setSelectedCarId(id);
   };
 
@@ -147,7 +156,7 @@ if(searchedCar?.length){
                         type="button"
                         className="btn btn-success bookNowButton"
                         data-bs-toggle="modal"
-                        data-bs-target="#staticBackdropBookNow"
+                        data-bs-target= "#staticBackdropBookNow"
                         onClick={() => handleBookNow(id)}
                       >
                         Book Now
@@ -159,7 +168,7 @@ if(searchedCar?.length){
             </div>
           );
         })}
-        <BookingModal id={selectedCarId}/>
+       <BookingModal id={selectedCarId}/> 
       </div>
     </div>
   );

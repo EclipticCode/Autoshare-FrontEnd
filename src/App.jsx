@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from './Components/Navbar'
 import NavsTabs from './Components/NavsTabs'
 import CarsPage from './Components/CarsPage'
@@ -10,7 +10,7 @@ import { SearchProvider } from './Components/Context'
 const App = () => {
   
   const BasicPage = () => {
-
+     console.log(import.meta.url)
     return (
       
         <SearchProvider>
