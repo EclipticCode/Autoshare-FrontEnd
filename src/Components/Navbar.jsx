@@ -92,9 +92,7 @@ const Navbar = () => {
                   <button
                     className="btn btn-secondary"
                     type="button"
-                    data-bs-toggle="modal"
-                    // data-bs-target="#staticBackdropRegister"
-                    onClick={() => {
+                      onClick={() => {
                       handleLogout();
                     }}
                   >
