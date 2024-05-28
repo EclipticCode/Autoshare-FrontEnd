@@ -1,4 +1,4 @@
-export const apiUrl = import.meta.env.VITE_LOCAL_URL === "production" ? "https://autoshare-backend-xxiw.onrender.com" : "http://localhost:4000/";
+export const apiUrl = import.meta.env.VITE_LOCAL_URL === "production" ? "https://autoshare-backend-xxiw.onrender.com" : "http://localhost:4000";
 
 console.log(apiUrl)
 

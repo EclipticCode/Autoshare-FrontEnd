@@ -22,16 +22,16 @@ const BookingModal = ({ id }) => {
       startDate: event.target.value,
     });
   };
-  const handleEndDate = async (event) => {
-    const selectedEndDate = event.target.value;
+  const handleEndDate =  (event) => {
+    // const selectedEndDate = event.target.value;
     setBookingDetails({
       ...bookingDetails,
-      endDate: selectedEndDate,
+      endDate: event.target.value,
     });
-    if(selectedEndDate){
-      const response = await axios.get(`${apiUrl}/bookedSlots/${id}/${selectedEndDate}`);
-    }
-  };
+  //   if(selectedEndDate){
+  //     const response = await axios.get(`${apiUrl}/bookedSlots/${id}/${selectedEndDate}`);
+  //   }
+ };
   const handleTimeChange = (event) => {
     setBookingDetails({
       ...bookingDetails,
