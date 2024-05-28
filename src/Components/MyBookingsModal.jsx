@@ -11,7 +11,7 @@ const MyBookingsModal = () => {
 
  useEffect(() => {
  if(username){
-  axios.get(`${apiUrl}/mybookings/${username}`)
+  axios.get(`http://localhost:4000/mybookings/${username}`)
     .then(response => {
     if(response.data?.length){
     const totalBookings = response?.data?.filter((ele)=> ele.isCancelled == false)

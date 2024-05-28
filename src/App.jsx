@@ -10,7 +10,7 @@ import { SearchProvider } from './Components/Context'
 const App = () => {
   
   const BasicPage = () => {
-     console.log(import.meta.url)
+     console.log(import.meta.env , "VITE_LOCAL_URL")
     return (
       
         <SearchProvider>
