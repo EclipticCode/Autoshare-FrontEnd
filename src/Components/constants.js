@@ -1,6 +1,5 @@
 export const apiUrl = import.meta.env.VITE_LOCAL_URL === "production" ? "https://autoshare-backend-xxiw.onrender.com" : "http://localhost:4000";
 
-
 export const transmissionFilter = ['Manual' , 'Automatic' , 'Hybrid']
 export const seatsFilter = [ '5 Seats' , '6 Seats' , '7 Seats']
 export const fuelFilter = ['Petrol' , 'Diesel']

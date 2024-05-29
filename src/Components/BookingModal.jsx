@@ -70,7 +70,7 @@ const BookingModal = ({ id }) => {
           startDate,
           endDate,
           deliveryTime,
-        }
+        } , {headers : {auth : Math.random()}}
       );
 
       if (apiResponse.data?._id) {

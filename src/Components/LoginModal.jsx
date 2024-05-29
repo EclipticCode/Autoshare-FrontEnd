@@ -7,7 +7,7 @@ import { apiUrl } from "./constants";
 const LoginModal = () => {
 
   const handleSubmit = async (values) => {
-    const apiResponse = await axios.get(`${apiUrl}/login/${values.username}/${values.password}`);
+    const apiResponse = await axios.get(`${apiUrl}/login/${values.username}/${values.password}`, {headers : {auth : Math.random()}});
     if(apiResponse.data && apiResponse.data != "Login failed"){
       localStorage.setItem("login" , apiResponse.data)
       window.location.reload();

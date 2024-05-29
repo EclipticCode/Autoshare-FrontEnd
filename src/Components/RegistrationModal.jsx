@@ -2,26 +2,17 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./RegistrationModal.css";
 import axios from 'axios';
-import bcryptjs from 'bcryptjs';
 import { apiUrl } from "./constants";
 
 
 
 const RegistrationModal = () => {
 
-  const handleSubmit = async (values) => {
-    // console.log(values.password)
-    const myHashPassword = await bcryptjs.hash(values.password , 0)
-    // const isValid = await bcryptjs.compare(values.password , myHashPassword)
-    // console.log(myHashPassword);
-    // console.log(isValid)
-
-    axios.post(`${apiUrl}/registration`, {
-      usrename: values.username ,
-      password : myHashPassword ,
-      phoneNumber : values.phoneNumber ,
-      emailAddress : values.emailAddress ,
-    })
+  const handleSubmit =  (values) => {
+     axios.post(`${apiUrl}/registration`, {
+       values
+    } , {headers : {auth : Math.random()}});
+   
   }
 
   const handleClear = (formik) => {
