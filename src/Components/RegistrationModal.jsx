@@ -2,15 +2,26 @@ import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "./RegistrationModal.css";
 import axios from 'axios';
+import bcryptjs from 'bcryptjs';
 import { apiUrl } from "./constants";
+
 
 
 const RegistrationModal = () => {
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
+    // console.log(values.password)
+    const myHashPassword = await bcryptjs.hash(values.password , 0)
+    // const isValid = await bcryptjs.compare(values.password , myHashPassword)
+    // console.log(myHashPassword);
+    // console.log(isValid)
+
     axios.post(`${apiUrl}/registration`, {
-      values,
-    });
+      usrename: values.username ,
+      password : myHashPassword ,
+      phoneNumber : values.phoneNumber ,
+      emailAddress : values.emailAddress ,
+    })
   }
 
   const handleClear = (formik) => {
@@ -146,7 +157,7 @@ const RegistrationModal = () => {
                    <Field
                      id="phoneNumber"
                      name="phoneNumber"
-                     type="text"
+                     type="number"
                      className="form-control"
                      placeholder="Enter Phone Number"
                    />
@@ -182,7 +193,7 @@ const RegistrationModal = () => {
                    <button
                      type="submit"
                      className="btn btn-success me-2"
-                     data-bs-dismiss="modal"
+                    //  data-bs-dismiss="modal"
                    >
                      Register
                    </button>
