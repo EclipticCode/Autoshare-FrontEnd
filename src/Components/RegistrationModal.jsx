@@ -8,10 +8,18 @@ import { apiUrl } from "./constants";
 
 const RegistrationModal = () => {
 
-  const handleSubmit =  (values) => {
-     axios.post(`${apiUrl}/registration`, {
-       values
-    });
+  const handleSubmit = async (values , actions) => {
+     try{ 
+      const response = await axios.post(`${apiUrl}/registration`, {values});
+      if(response.data){
+        alert("Registration successfull")
+        actions.resetForm()
+      }
+     }
+     catch (error) {
+      console.error("Registration failed")
+      alert("Registration failed please try again")
+      }
    
   }
 
