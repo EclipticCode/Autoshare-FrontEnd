@@ -8,29 +8,36 @@ const MyBookingsModal = () => {
  const [bookingResponse , setBookingResponse] = useState([])
 
  const username = localStorage.getItem("login")
+ const token = localStorage.getItem("token")
 
- useEffect(() => {
- if(username){
-  axios.get(`${apiUrl}/mybookings/${username}` , {headers : {auth : Math.random()}})
-    .then(response => {
-    if(response.data?.length){
-    const totalBookings = response?.data?.filter((ele)=> ele.isCancelled == false)
-     setBookingResponse(totalBookings)
-     }
-    } , [])
-   }
-    })
 
-const handleCancelBooking = (bookingId) => {
-    axios.put(`${apiUrl}/cancelBooking/${username}/${bookingId}`)
-    .then(response => {
-        if(response.data){
-            if(response.data === "Booking cancelled successfully"){
-                alert("Booking cancelled")
-            }
+  useEffect(()=>{
+   const fetchBookings = async () => {
+    try{
+      if(username){
+        const response = await axios.get(`${apiUrl}/mybookings/${username}` , {headers : {auth : token}})
+        if(response.data?.length){
+          const totalBookings = response?.data?.filter((ele)=> ele.isCancelled == false)
+          setBookingResponse(totalBookings)
         }
-    })
+      }
+    }
+   catch (error) {console.error("Error while fetching" , error)}
+  }; fetchBookings();
+  } , [])
+
+
+const handleCancelBooking = async (bookingId) => {
+ try{
+  const response = await axios.put(`${apiUrl}/cancelBooking/${username}/${bookingId}` , null , {headers : {auth : token}} )
+  if(response.data){
+   if(response.data === "Booking cancelled successfully"){
+     alert("Booking cancelled")
+ }}
+ } 
+ catch (error) {console.error("Error cancelling the booking", error)}
 }
+
   return (
     <div>
       <div

@@ -7,6 +7,8 @@ import { apiUrl } from "./constants";
 
 const BookingModal = ({ id }) => {
   const username = localStorage.getItem("login") || "";
+  const token = localStorage.getItem("token");
+
 
   const [bookingDetails, setBookingDetails] = useState({
     startDate: "",
@@ -70,9 +72,8 @@ const BookingModal = ({ id }) => {
           startDate,
           endDate,
           deliveryTime,
-        } , {headers : {auth : Math.random()}}
-      );
-
+        } , {headers : {auth :token}}
+      )
       if (apiResponse.data?._id) {
         alert("Booking Confirmed");
       }

@@ -5,15 +5,24 @@ import axios from "axios";
 import { apiUrl } from "./constants";
 
 const LoginModal = () => {
-
   const handleSubmit = async (values) => {
-    const apiResponse = await axios.get(`${apiUrl}/login/${values.username}/${values.password}`, {headers : {auth : Math.random()}});
-    if(apiResponse.data && apiResponse.data != "Login failed"){
-      localStorage.setItem("login" , apiResponse.data)
-      window.location.reload();
-      return;
+    const apiResponse = await axios.get(
+      `${apiUrl}/login/${values.username}/${values.password}`);
+    try {
+      if (apiResponse.data && apiResponse.data != "Login failed") {
+        const { username, token } = apiResponse.data;
+
+        localStorage.setItem("login", username);
+        localStorage.setItem("token", token);
+
+        window.location.reload();
+        return;
+      }
+      alert("Invalid Username or Password");
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("An error occurred. Please try again.");
     }
-    alert("Invalid Username or Password")
   };
 
   const handleClear = (formik) => {
@@ -60,7 +69,8 @@ const LoginModal = () => {
                 onSubmit={handleSubmit}
               >
                 {(formik) => (
-                  <Form>
+                  <Form
+                  >
                     <div className="mb-2">
                       <label
                         htmlFor="formGroupExampleInput"

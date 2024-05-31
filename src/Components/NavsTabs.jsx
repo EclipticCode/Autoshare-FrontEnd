@@ -15,7 +15,7 @@ const NavsTabs = () => {
               </li>
               <li className="nav-item me-4">
                 <a className="nav-link cars" href="#">
-                  EV Zone
+                  EV Zone <div className="small" style={{"fontSize" : "10px" , "color" : "#028a72"}}>(Launching soon)</div>
                 </a>
               </li>
               <li className="nav-item me-4">

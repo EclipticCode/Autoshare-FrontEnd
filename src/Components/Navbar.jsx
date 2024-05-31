@@ -10,9 +10,11 @@ import MyBookingsModal from "./MyBookingsModal";
 const Navbar = () => {
 
   const username = localStorage.getItem("login") || "";
+  const token = localStorage.getItem("token") || "";
 
   const handleLogout = () => {
     localStorage.setItem("login", "");
+    localStorage.setItem("token", "");
     window.location.reload();
   };
 

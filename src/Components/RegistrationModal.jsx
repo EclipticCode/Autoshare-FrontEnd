@@ -11,7 +11,7 @@ const RegistrationModal = () => {
   const handleSubmit =  (values) => {
      axios.post(`${apiUrl}/registration`, {
        values
-    } , {headers : {auth : Math.random()}});
+    });
    
   }
 
