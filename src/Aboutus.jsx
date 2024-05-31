@@ -23,12 +23,12 @@ const AboutUs = () => {
                             </div>
                             <div className="col-12 col-sm-6 col-md-4 aboutus-team-member">
                                 <img src={cto} alt="Member 2" className="aboutus-team-photo" />
-                                <h3 className="aboutus-team-name">Ganesh Chakaravarthy</h3>
+                                <h3 className="aboutus-team-name">Vedang Patel</h3>
                                 <p className="aboutus-team-role">CTO</p>
                             </div>
                             <div className="col-12 col-sm-6 col-md-4 aboutus-team-member">
                                 <img src={cfo} alt="Member 3" className="aboutus-team-photo" />
-                                <h3 className="aboutus-team-name">Mike Steven</h3>
+                                <h3 className="aboutus-team-name">Rohin Samtaney</h3>
                                 <p className="aboutus-team-role">CFO</p>
                             </div>
                         </div>

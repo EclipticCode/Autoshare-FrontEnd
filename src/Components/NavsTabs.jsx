@@ -20,17 +20,14 @@ const NavsTabs = () => {
                 </a>
               </li>
               <li className="nav-item me-4">
-                {/* <a className="nav-link about" href="#">
-                  About Us
-                </a> */}
                  <Link className="nav-link about" to="/Aboutus">
                   About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <p className="nav-link contact" href="#">
+                <Link className="nav-link contact" to="/Contactus">
                   Contact Us
-                </p>
+                </Link>
               </li>
             </ul>
           </div>
