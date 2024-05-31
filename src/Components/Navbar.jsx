@@ -8,7 +8,6 @@ import iconImg from "../assets/Icon.png";
 import MyBookingsModal from "./MyBookingsModal";
 
 const Navbar = () => {
-
   const username = localStorage.getItem("login") || "";
   const token = localStorage.getItem("token") || "";
 
@@ -20,18 +19,12 @@ const Navbar = () => {
 
   const { searchedCar, setSearchedCar } = useContext(SearchContext);
 
-  const handleNameChange = (event) => {
-    setSearchedCar(event.target.value);
-    console.log(event.target.value);
-  };
-
   const navigate = useNavigate();
 
   return (
     <div>
-    
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <p className="navbar-brand autoshare mt-3">
             Auto
             <span className="h3">
@@ -69,7 +62,7 @@ const Navbar = () => {
                 </select>
               </li>
             </ul>
-           
+
             <div className="d-flex" role="search">
               <input
                 className="form-control me-4"
@@ -95,7 +88,7 @@ const Navbar = () => {
                   <button
                     className="btn btn-secondary"
                     type="button"
-                      onClick={() => {
+                    onClick={() => {
                       handleLogout();
                     }}
                   >
@@ -122,18 +115,15 @@ const Navbar = () => {
                   </button>
                 </>
               )}
-             
             </div>
-           <MyBookingsModal/>
+            <MyBookingsModal />
             <LoginModal />
             <RegistrationModal />
           </div>
-          </nav>
         </div>
-   
+      </nav>
     </div>
   );
 };
-
 
 export default Navbar;

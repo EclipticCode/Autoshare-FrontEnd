@@ -1,28 +1,20 @@
-import React from 'react'
-import './Footer.css'
-import { metropolitanCities } from './constants'
-import img from '../assets/images.png'
+import React from "react";
+import "./Footer.css";
+import { metropolitanCities } from "./constants";
+import img from "../assets/images.png";
 
 const Footer = () => {
-    return (
-        <div className='container-fluid cardFooter'>
-            <div className="row">
-                <div className="col-md-4 qrImage">
-                <img src={img}/>
-                <p className='scanQR'>Scan this QR code to download the app !</p>
-                </div>
-                <div className="col-md-8 citiesList ">
-                   <div className="row">
-                   <h5 className='heading'>We are also available in the following Cities</h5>
-                   <ul className='cities'>{metropolitanCities.map((city , index) =><li key={index}>Self Drive Cars in {city}</li>)}</ul>
-                   </div>
-                </div>
-            </div>
-            <hr/>
-
+  return (
+    <div>
+      <div className="cardFooter">
+        <div className="card-body">
+          <p className="card-title text-center">
+            Copyright © Your Website 2023
+          </p>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Footer
-
+export default Footer;

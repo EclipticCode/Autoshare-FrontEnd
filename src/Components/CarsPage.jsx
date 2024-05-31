@@ -19,7 +19,7 @@ const CarsPage = () => {
             <Filter filteredTags={filteredTags} setFilteredTags={setFilteredTags} />
           </div>
           <div className="col-sm-8 col-lg-10">
-            <div className="row">
+            {/* <div className="row">
               <div className="col">
                 <nav
                   style={{ "--bs-breadcrumb-divider": "'>'" }}
@@ -36,7 +36,7 @@ const CarsPage = () => {
                   </ol>
                 </nav>
               </div>
-            </div>
+            </div> */}
             <div className="row">
               <div className="col-md-9 h2 selfdrive">
                 Self-Drive Car Rentals in {location} 
