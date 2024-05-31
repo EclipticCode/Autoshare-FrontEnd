@@ -1,0 +1,65 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.aboutus-container {
+    margin-top: 50px;
+}
+
+.aboutus-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aboutus-card-body {
+    padding: 30px;
+}
+
+.aboutus-card-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #028a72;
+}
+
+.aboutus-card-text {
+    font-size: 18px;
+    line-height: 28px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.aboutus-team-section {
+    margin-top: 40px;
+}
+
+.aboutus-team-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #028a72;
+    text-align: center;
+}
+
+.aboutus-team-member {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.aboutus-team-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.aboutus-team-name {
+    font-size: 24px;
+    color: #333;
+}
+
+.aboutus-team-role {
+    font-size: 18px;
+    color: #777;
+}

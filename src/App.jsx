@@ -5,6 +5,7 @@ import CarsPage from './Components/CarsPage'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 import Footer from './Components/Footer'
 import { SearchProvider } from './Components/Context'
+import Aboutus from './Aboutus'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
     <div>
        <BrowserRouter>
           <Routes>
+              <Route path='/Aboutus' element={<Aboutus/>}></Route>
               <Route path='/:location' element={<BasicPage/>}></Route>
               <Route path='*' element={<BasicPage/>}></Route>
           </Routes>

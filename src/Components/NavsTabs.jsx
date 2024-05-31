@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavsTabs.css";
+import { Link } from "react-router-dom";
 
 const NavsTabs = () => {
   return (
@@ -19,9 +20,12 @@ const NavsTabs = () => {
                 </a>
               </li>
               <li className="nav-item me-4">
-                <a className="nav-link about" href="#">
+                {/* <a className="nav-link about" href="#">
                   About Us
-                </a>
+                </a> */}
+                 <Link className="nav-link about" to="/Aboutus">
+                  About Us
+                </Link>
               </li>
               <li className="nav-item">
                 <p className="nav-link contact" href="#">
