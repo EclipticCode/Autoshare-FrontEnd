@@ -5,7 +5,7 @@ import "./BookingModal.css";
 import axios from "axios";
 import { apiUrl } from "./constants";
 
-const BookingModal = ({ id }) => {
+const BookingModal = ({ id  }) => {
   const username = localStorage.getItem("login") || "";
   const token = localStorage.getItem("token");
 

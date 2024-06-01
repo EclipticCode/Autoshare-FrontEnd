@@ -79,6 +79,7 @@ const MyBookingsModal = () => {
                     <th scope="col">Journey Start Date</th>
                     <th scope="col">Journey End Date</th>
                     <th scope="col">Delivery Time</th>
+                    <th scope="col">Cancel Booking</th>
                   </tr>
                 </thead>
                 <tbody>

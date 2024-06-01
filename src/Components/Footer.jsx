@@ -7,9 +7,9 @@ const Footer = () => {
     <div>
       <div className="cardFooter">
         <div className="card-body">
-          <p className="card-title text-center">
-            Copyright © Your Website 2023
-          </p>
+          <h6 className="card-title text-center">
+            Copyright © AutoShare 2023
+          </h6>
         </div>
       </div>
     </div>
