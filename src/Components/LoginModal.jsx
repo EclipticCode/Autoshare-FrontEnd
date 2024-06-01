@@ -117,7 +117,6 @@ const LoginModal = () => {
                       <button
                         type="submit"
                         className="btn btn-success"
-                        data-bs-dismiss="modal"
                       >
                         Submit
                       </button>

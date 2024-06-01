@@ -70,6 +70,8 @@ const RegistrationModal = () => {
                   }
                   if (!values.confirmPassword) {
                     errors.confirmPassword = "*Enter a valid password";
+                  } else if (values.password !== values.confirmPassword){
+                     errors.confirmPassword = "Passwords must match"
                   }
                   if (!values.phoneNumber) {
                     errors.phoneNumber = "*Enter Phone Number";
@@ -192,7 +194,6 @@ const RegistrationModal = () => {
                    <button
                      type="submit"
                      className="btn btn-success me-2"
-                    //  data-bs-dismiss="modal"
                    >
                      Register
                    </button>
