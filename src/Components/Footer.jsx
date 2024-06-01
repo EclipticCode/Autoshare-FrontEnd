@@ -1,7 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import { metropolitanCities } from "./constants";
-import img from "../assets/images.png";
+
 
 const Footer = () => {
   return (

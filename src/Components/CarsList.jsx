@@ -12,7 +12,6 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
   const { location } = useParams();
   const urlLocation = location ? location.toLowerCase() : "delhi";
   const [selectedCarId, setSelectedCarId] = useState(null);
- 
 
   let carsData = carDetails[urlLocation] || [];
   
@@ -78,12 +77,11 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
 const handleBookNow = (id) => {
 
     if(!username){
-     alert("Please login to make a booking")
-      return;
+    //  alert("Please login to make a booking")
+      // return;
     }
     setSelectedCarId(id);
   };
-
 
   // filter Searched car
 
@@ -152,7 +150,7 @@ if(searchedCar?.length){
                     </span>
                     <span className="bookNow">
                       {" "}
-                      <button
+                      {username ? <button
                         type="button"
                         className="btn btn-success bookNowButton"
                         data-bs-toggle="modal"
@@ -160,7 +158,14 @@ if(searchedCar?.length){
                         onClick={() => handleBookNow(id)}
                       >
                         Book Now
-                      </button>
+                      </button> : <button
+                        type="button"
+                        data-bs-toggle="modal"
+                        data-bs-target= "#staticBackdropAlert"
+                        className="btn btn-success bookNowButton"
+                      >
+                        Book Now
+                      </button>}
                     </span>
                   </div>
                 </div>
@@ -169,6 +174,7 @@ if(searchedCar?.length){
           );
         })}
        <BookingModal id={selectedCarId}/> 
+       <AlertModal/>
       </div>
     </div>
   );
