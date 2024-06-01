@@ -1,42 +1,51 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { apiUrl } from "./constants";
-import './MyBookingsModal.css'
+import "./MyBookingsModal.css";
 
 const MyBookingsModal = () => {
+  const [bookingResponse, setBookingResponse] = useState([]);
 
- const [bookingResponse , setBookingResponse] = useState([])
+  const username = localStorage.getItem("login");
+  const token = localStorage.getItem("token");
 
- const username = localStorage.getItem("login")
- const token = localStorage.getItem("token")
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        if (username) {
+          const response = await axios.get(`${apiUrl}/mybookings/${username}`, {
+            headers: { auth: token },
+          });
+          if (response.data?.length) {
+            const totalBookings = response?.data?.filter(
+              (ele) => ele.isCancelled == false
+            );
+            setBookingResponse(totalBookings);
+          }
+        }
+      } catch (error) {
+        console.error("Error while fetching", error);
+      }
+    };
+    fetchBookings();
+  }, []);
 
-
-  useEffect(()=>{
-   const fetchBookings = async () => {
-    try{
-      if(username){
-        const response = await axios.get(`${apiUrl}/mybookings/${username}` , {headers : {auth : token}})
-        if(response.data?.length){
-          const totalBookings = response?.data?.filter((ele)=> ele.isCancelled == false)
-          setBookingResponse(totalBookings)
+  const handleCancelBooking = async (bookingId) => {
+    try {
+      const response = await axios.put(
+        `${apiUrl}/cancelBooking/${username}/${bookingId}`,
+        null,
+        { headers: { auth: token } }
+      );
+      if (response.data) {
+        if (response.data === "Booking cancelled successfully") {
+          alert("Booking cancelled");
         }
       }
+    } catch (error) {
+      console.error("Error cancelling the booking", error);
     }
-   catch (error) {console.error("Error while fetching" , error)}
-  }; fetchBookings();
-  } , [])
-
-
-const handleCancelBooking = async (bookingId) => {
- try{
-  const response = await axios.put(`${apiUrl}/cancelBooking/${username}/${bookingId}` , null , {headers : {auth : token}} )
-  if(response.data){
-   if(response.data === "Booking cancelled successfully"){
-     alert("Booking cancelled")
- }}
- } 
- catch (error) {console.error("Error cancelling the booking", error)}
-}
+  };
 
   return (
     <div>
@@ -63,38 +72,37 @@ const handleCancelBooking = async (bookingId) => {
               ></button>
             </div>
             <div className="modal-body">
-            <table className="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Booking ID</th>
-      <th scope="col">Journey Start Date</th>
-      <th scope="col">Journey End Date</th>
-      <th scope="col">Delivery Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    {bookingResponse.map((row) => (
-      <tr key={row.carId}>
-      <td>{row.carId}</td>
-      <td>{row.startDate}</td>
-      <td>{row.endDate}</td>
-      <td>{row.deliveryTime}</td>
-      <td><button type="button" className="btn btn-danger btn-sm" onClick={() => {handleCancelBooking(row._id)}}>Cancel</button></td>
-    </tr>
-   ))} 
-
- </tbody>
-</table>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary btn-sm"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              
+              <table className="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Booking ID</th>
+                    <th scope="col">Journey Start Date</th>
+                    <th scope="col">Journey End Date</th>
+                    <th scope="col">Delivery Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {bookingResponse.map((row) => (
+                    <tr key={row.carId}>
+                      <td>{row.carId}</td>
+                      <td>{row.startDate}</td>
+                      <td>{row.endDate}</td>
+                      <td>{row.deliveryTime}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-danger btn-sm"
+                          onClick={() => {
+                            handleCancelBooking(row._id);
+                          }}
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
