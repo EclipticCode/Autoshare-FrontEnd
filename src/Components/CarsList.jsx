@@ -17,7 +17,8 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
   let carsData = carDetails[urlLocation] || [];
   
   const username = localStorage.getItem("login")
-
+ 
+  
   // filtered Tags
   carsData = carsData.filter((eachCar) => {
     if (filteredTags.length === 0) {
@@ -77,7 +78,6 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
 
 const handleBookNow = (id) => {
   setSelectedCarId(id);
-  setBookedCarIds([...bookedCarIds , id])
   };
 
   // filter Searched car
@@ -154,7 +154,7 @@ if(searchedCar?.length){
                         data-bs-target= "#staticBackdropBookNow"
                         onClick={() => handleBookNow(id)}
                       >
-                       Book Now
+                      Book Now
                       </button> : <button
                         type="button"
                         data-bs-toggle="modal"
@@ -170,7 +170,7 @@ if(searchedCar?.length){
             </div>
           );
         })}
-       <BookingModal id={selectedCarId} /> 
+       <BookingModal id={selectedCarId}/> 
        <AlertModal/>
       </div>
     </div>

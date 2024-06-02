@@ -6,6 +6,7 @@ import axios from "axios";
 import { apiUrl } from "./constants";
 
 const BookingModal = ({ id  }) => {
+
   const username = localStorage.getItem("login") || "";
   const token = localStorage.getItem("token");
 
@@ -48,13 +49,14 @@ const BookingModal = ({ id  }) => {
       deliveryTime: "",
     });
   };
+
   useEffect(() => {
     const { startDate, endDate, deliveryTime } = bookingDetails;
     setIsFormValid(startDate && endDate && deliveryTime);
   }, [bookingDetails]);
 
   const handleSubmit = async () => {
-   
+
     const { startDate, endDate, deliveryTime } = bookingDetails;
 
     if (

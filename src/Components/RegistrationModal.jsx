@@ -67,7 +67,9 @@ const RegistrationModal = () => {
                   }
                   if (!values.password) {
                     errors.password = "*Password is required";
-                  }
+                   }else if (values.password.length < 8){
+                    errors.password = "Password must be atleast of 8 characters"
+                 }
                   if (!values.confirmPassword) {
                     errors.confirmPassword = "*Enter a valid password";
                   } else if (values.password !== values.confirmPassword){
