@@ -10,11 +10,11 @@ const LoginModal = () => {
       `${apiUrl}/login/${values.username}/${values.password}`);
     try {
       if (apiResponse.data && apiResponse.data != "Login failed") {
-        const { username, token } = apiResponse.data;
 
+        const { username, token } = apiResponse.data;
         localStorage.setItem("login", username);
         localStorage.setItem("token", token);
-
+        
         window.location.reload();
         return;
       }

@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./CarsList.css";
  import { SearchContext } from "./Context";
 import BookingModal from "./BookingModal";
 import { useParams } from "react-router-dom";
-import { carDetails } from "./constants";
+import { apiUrl, carDetails } from "./constants";
 import AlertModal from "./AlertModal";
+import axios from 'axios'
 
 const CarsList = ({ filteredTags = [], selectedSort }) => {
    
@@ -13,11 +14,12 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
   const urlLocation = location ? location.toLowerCase() : "delhi";
   const [selectedCarId, setSelectedCarId] = useState(null);
   const [bookedCarIds , setBookedCarIds] = useState([])
+  
 
   let carsData = carDetails[urlLocation] || [];
   
   const username = localStorage.getItem("login")
- 
+  const token = localStorage.getItem("token")
   
   // filtered Tags
   carsData = carsData.filter((eachCar) => {
@@ -76,7 +78,7 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
     }
   }
 
-const handleBookNow = (id) => {
+const handleBookNow = async (id) => {
   setSelectedCarId(id);
   };
 
@@ -90,6 +92,23 @@ if(searchedCar?.length){
     return false;
   })
 }
+
+useEffect(()=>{
+  const fetchBookedCarIds = async () => {
+    try {
+      if(username){
+        const response = await axios.get(`${apiUrl}/bookedCars` , {
+          headers : {auth : token}
+        });
+        setBookedCarIds(response.data);
+      }
+    }
+  catch (error){
+    console.error("Error fetching booked car IDs" , error)
+  }}
+  fetchBookedCarIds()
+} , [username])
+
 
   return (
     <div className="container">
@@ -105,6 +124,7 @@ if(searchedCar?.length){
             pricePerHour,
             fees,
           } = car;
+          const isBooked = bookedCarIds.includes(id)
           return (
             <div
               className="col-sm-12 col-md-8 col-lg-6 col-xl-4 justify-content-center margin"
@@ -153,8 +173,9 @@ if(searchedCar?.length){
                         data-bs-toggle="modal"
                         data-bs-target= "#staticBackdropBookNow"
                         onClick={() => handleBookNow(id)}
+                        disabled={isBooked}
                       >
-                      Book Now
+                      {isBooked ? "Car Booked" : "Book Now"} 
                       </button> : <button
                         type="button"
                         data-bs-toggle="modal"
@@ -170,7 +191,7 @@ if(searchedCar?.length){
             </div>
           );
         })}
-       <BookingModal id={selectedCarId}/> 
+       <BookingModal id={selectedCarId} bookedCarIds={bookedCarIds} setBookedCarIds={setBookedCarIds} /> 
        <AlertModal/>
       </div>
     </div>

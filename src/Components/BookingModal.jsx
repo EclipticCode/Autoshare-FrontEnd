@@ -5,10 +5,11 @@ import "./BookingModal.css";
 import axios from "axios";
 import { apiUrl } from "./constants";
 
-const BookingModal = ({ id  }) => {
+const BookingModal = ({ id , bookedCarIds , setBookedCarIds }) => {
 
   const username = localStorage.getItem("login") || "";
   const token = localStorage.getItem("token");
+  
 
 
   const [bookingDetails, setBookingDetails] = useState({
@@ -25,15 +26,11 @@ const BookingModal = ({ id  }) => {
       startDate: event.target.value,
     });
   };
-  const handleEndDate =  (event) => {
-    // const selectedEndDate = event.target.value;
+  const handleEndDate = async (event) => {
     setBookingDetails({
       ...bookingDetails,
       endDate: event.target.value,
     });
-  //   if(selectedEndDate){
-  //     const response = await axios.get(`${apiUrl}/bookedSlots/${id}/${selectedEndDate}`);
-  //   }
  };
   const handleTimeChange = (event) => {
     setBookingDetails({
@@ -58,6 +55,7 @@ const BookingModal = ({ id  }) => {
   const handleSubmit = async () => {
 
     const { startDate, endDate, deliveryTime } = bookingDetails;
+    setBookedCarIds([...bookedCarIds , id])
 
     if (
       startDate?.length &&
@@ -86,6 +84,7 @@ const BookingModal = ({ id  }) => {
       deliveryTime: "",
     });
   };
+  
   return (
     <div>
       <div
