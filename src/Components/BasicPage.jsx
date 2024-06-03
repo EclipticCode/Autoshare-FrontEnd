@@ -1,12 +1,12 @@
-import Navbar from "./Components/Navbar";
-import NavsTabs from "./Components/NavsTabs";
-import CarsPage from "./Components/CarsPage";
-import Footer from "./Components/Footer";
+import Navbar from "./Navbar";
+import NavsTabs from "./NavsTabs";
+import CarsPage from "./CarsPage";
+import Footer from "./Footer";
 import {
   BookedCarProvider,
   SearchProvider,
   SelectedSortProvider,
-} from "./Components/Context";
+} from "./Context";
 
 const BasicPage = () => {
   return (

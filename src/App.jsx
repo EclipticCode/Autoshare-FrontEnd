@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
-import Aboutus from './Aboutus'
+import Aboutus from './Components/Aboutus'
 import Contactus from './Components/Contactus'
-import BasicPage from './BasicPage'
+import BasicPage from './Components/BasicPage'
 
 
 const App = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Aboutus.css'; 
-import ceo from './assets/CEO.jpg';
-import cto from './assets/CTO.jpg';
-import cfo from './assets/CFO.jpg';
+import ceo from '../assets/CEO.jpg';
+import cto from '../assets/CTO.jpg';
+import cfo from '../assets/CFO.jpg';
 
 const AboutUs = () => {
     return (
