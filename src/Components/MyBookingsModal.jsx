@@ -11,7 +11,6 @@ const MyBookingsModal = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    // console.log(import.meta.env.VITE_LOCAL_URL);
     const fetchBookings = async () => {
       try {
         if (username) {
