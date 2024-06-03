@@ -1,32 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./CarsList.css";
-import { SearchContext } from "./Context";
 import BookingModal from "./BookingModal";
 import { useParams } from "react-router-dom";
 import { apiUrl, carDetails } from "./constants";
 import AlertModal from "./AlertModal";
-import axios from 'axios'
-import { FilterContext , SelectedSortContext} from "./Context";
-
+import axios from "axios";
+import {
+  BookedCarContext,
+  SearchContext,
+  FilterContext,
+  SelectedSortContext,
+} from "./Context";
 
 const CarsList = () => {
-
-  const {  filteredTags  } = useContext(FilterContext)
-  const { searchedCar } = useContext(SearchContext)
-   const { selectedSort  } = useContext(SelectedSortContext)
-
-  const { location } = useParams();
-
-  const urlLocation = location ? location.toLowerCase() : "delhi";
+  const { filteredTags } = useContext(FilterContext);
+  const { searchedCar } = useContext(SearchContext);
+  const { selectedSort } = useContext(SelectedSortContext);
+  const { bookedCarIds, setBookedCarIds } = useContext(BookedCarContext);
 
   const [selectedCarId, setSelectedCarId] = useState(null);
-  const [bookedCarIds , setBookedCarIds] = useState([])
-  
+
+  const { location } = useParams();
+  const urlLocation = location ? location.toLowerCase() : "delhi";
+
   let carsData = carDetails[urlLocation] || [];
-  
-  const username = localStorage.getItem("login")
-  const token = localStorage.getItem("token")
-  
+
+  const username = localStorage.getItem("login");
+  const token = localStorage.getItem("token");
 
   // filtered Tags
   carsData = carsData.filter((eachCar) => {
@@ -41,7 +41,6 @@ const CarsList = () => {
       return false;
     }
   });
-
 
   //  sort logic
   const callback = (a, b) => {
@@ -85,37 +84,35 @@ const CarsList = () => {
     }
   }
 
-const handleBookNow = async (id) => {
-  setSelectedCarId(id);
-  };
-
-
   // filter Searched car
-
-if(searchedCar?.length){
-  carsData = carsData.filter((eachCar) => {
-    if(eachCar.carTitle.toLowerCase().includes(searchedCar.toLowerCase())){
-      return true;
-    }
-    return false;
-  })
-}
-
-useEffect(()=>{
-  const fetchBookedCarIds = async () => {
-    try {
-      if(username){
-        const response = await axios.get(`${apiUrl}/bookedCars` , {
-          headers : {auth : token}
-        });
-        setBookedCarIds(response.data);
+  if (searchedCar?.length) {
+    carsData = carsData.filter((eachCar) => {
+      if (eachCar.carTitle.toLowerCase().includes(searchedCar.toLowerCase())) {
+        return true;
       }
-    }
-  catch (error){
-    console.error("Error fetching booked car IDs" , error)
-  }}
-  fetchBookedCarIds()
-} , [username])
+      return false;
+    });
+  }
+
+  useEffect(() => {
+    const fetchBookedCarIds = async () => {
+      try {
+        if (username) {
+          const response = await axios.get(`${apiUrl}/bookedCars`, {
+            headers: { auth: token },
+          });
+          setBookedCarIds(response.data);
+        }
+      } catch (error) {
+        console.error("Error fetching booked car IDs", error);
+      }
+    };
+    fetchBookedCarIds();
+  }, [username]);
+
+  const handleBookNow = async (id) => {
+    setSelectedCarId(id);
+  };
 
 
   return (
@@ -132,7 +129,7 @@ useEffect(()=>{
             pricePerHour,
             fees,
           } = car;
-          const isBooked = bookedCarIds.includes(id)
+          const isBooked = bookedCarIds.includes(id);
           return (
             <div
               className="col-sm-12 col-md-8 col-lg-6 col-xl-4 justify-content-center margin"
@@ -175,23 +172,27 @@ useEffect(()=>{
                     </span>
                     <span className="bookNow">
                       {" "}
-                      {username ? <button
-                        type="button"
-                        className="btn btn-success bookNowButton"
-                        data-bs-toggle="modal"
-                        data-bs-target= "#staticBackdropBookNow"
-                        onClick={() => handleBookNow(id)}
-                        disabled={isBooked}
-                      >
-                      {isBooked ? "Car Booked" : "Book Now"} 
-                      </button> : <button
-                        type="button"
-                        data-bs-toggle="modal"
-                        data-bs-target= "#staticBackdropAlert"
-                        className="btn btn-success bookNowButton"
-                      >
-                        Book Now
-                      </button>}
+                      {username ? (
+                        <button
+                          type="button"
+                          className="btn btn-success bookNowButton"
+                          data-bs-toggle="modal"
+                          data-bs-target="#staticBackdropBookNow"
+                          onClick={() => handleBookNow(id)}
+                          disabled={isBooked}
+                        >
+                          {isBooked ? "Car Booked" : "Book Now"}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          data-bs-toggle="modal"
+                          data-bs-target="#staticBackdropAlert"
+                          className="btn btn-success bookNowButton"
+                        >
+                          Book Now
+                        </button>
+                      )}
                     </span>
                   </div>
                 </div>
@@ -199,12 +200,11 @@ useEffect(()=>{
             </div>
           );
         })}
-       <BookingModal id={selectedCarId} bookedCarIds={bookedCarIds} setBookedCarIds={setBookedCarIds} /> 
-       <AlertModal/>
+        <BookingModal id={selectedCarId} />
+        <AlertModal />
       </div>
     </div>
   );
 };
 
 export default CarsList;
-

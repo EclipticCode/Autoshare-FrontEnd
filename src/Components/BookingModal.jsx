@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./BookingModal.css";
 import axios from "axios";
 import { apiUrl } from "./constants";
+import { BookedCarContext } from "./Context";
 
-const BookingModal = ({ id , bookedCarIds , setBookedCarIds }) => {
+const BookingModal = ({ id }) => {
 
   const username = localStorage.getItem("login") || "";
   const token = localStorage.getItem("token");
   
-
+  const { bookedCarIds , setBookedCarIds } = useContext(BookedCarContext)
 
   const [bookingDetails, setBookingDetails] = useState({
     startDate: "",

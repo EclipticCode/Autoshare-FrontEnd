@@ -4,7 +4,7 @@ import React, { useState, createContext } from "react";
 export const SearchContext = createContext();
 
 export const SearchProvider = ({ children }) => {
-  
+
   const [searchedCar, setSearchedCar] = useState("");
 
   return (
@@ -40,5 +40,20 @@ export const SelectedSortProvider = ({children}) => {
     <SelectedSortContext.Provider value = {{ selectedSort , setSelectedSort }}>
       {children}
     </SelectedSortContext.Provider>
+  )
+}
+
+
+// BookedCarContext
+export const BookedCarContext = createContext();
+
+export const BookedCarProvider = ({children}) => {
+
+  const [bookedCarIds , setBookedCarIds] = useState([])
+
+  return(
+    <BookedCarContext.Provider value={{ bookedCarIds , setBookedCarIds }}>
+      {children}
+    </BookedCarContext.Provider>
   )
 }
