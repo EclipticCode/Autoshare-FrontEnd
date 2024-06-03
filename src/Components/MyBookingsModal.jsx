@@ -46,6 +46,7 @@ const MyBookingsModal = () => {
     } catch (error) {
       console.error("Error cancelling the booking", error);
     }
+    window.location.reload();
   };
 
   return (

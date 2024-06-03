@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const NavsTabs = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary navsTabs">
+      <nav className="navbar navbar-expand-xxl bg-body-tertiary navsTabs">
         <div className="container-fluid justify-content-center">
           <ul className="nav nav-underline align-items-center">
             <li className="nav-item me-4">

@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-xxl bg-body-tertiary">
         <div className="container-fluid">
           <p className="navbar-brand autoshare mt-3">
             Auto

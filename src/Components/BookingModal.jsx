@@ -84,6 +84,7 @@ const BookingModal = ({ id }) => {
       endDate: "",
       deliveryTime: "",
     });
+    window.location.reload();
   };
   
   return (
