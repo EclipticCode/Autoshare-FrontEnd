@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Filter.css";
 import { transmissionFilter, seatsFilter, fuelFilter } from "./constants";
+import { FilterContext } from "./Context";
 
-const Filter = ({ filteredTags, setFilteredTags }) => {
+const Filter = () => {
+
+  const {  filteredTags , setFilteredTags } = useContext(FilterContext)
+
   const handleFilterChange = (event) => {
     if (event.target.checked) {
       setFilteredTags([...filteredTags, event.target.value]);
@@ -13,6 +17,7 @@ const Filter = ({ filteredTags, setFilteredTags }) => {
       setFilteredTags(filteredItems);
     }
   };
+
   return (
     <div>
       <div className="accordion accordion-flush" id="accordionFlushExample">

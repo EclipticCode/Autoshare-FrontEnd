@@ -1,26 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./CarsList.css";
- import { SearchContext } from "./Context";
+import { SearchContext } from "./Context";
 import BookingModal from "./BookingModal";
 import { useParams } from "react-router-dom";
 import { apiUrl, carDetails } from "./constants";
 import AlertModal from "./AlertModal";
 import axios from 'axios'
+import { FilterContext , SelectedSortContext} from "./Context";
 
-const CarsList = ({ filteredTags = [], selectedSort }) => {
-   
+
+const CarsList = () => {
+
+  const {  filteredTags  } = useContext(FilterContext)
   const { searchedCar } = useContext(SearchContext)
+   const { selectedSort  } = useContext(SelectedSortContext)
+
   const { location } = useParams();
+
   const urlLocation = location ? location.toLowerCase() : "delhi";
+
   const [selectedCarId, setSelectedCarId] = useState(null);
   const [bookedCarIds , setBookedCarIds] = useState([])
   
-
   let carsData = carDetails[urlLocation] || [];
   
   const username = localStorage.getItem("login")
   const token = localStorage.getItem("token")
   
+
   // filtered Tags
   carsData = carsData.filter((eachCar) => {
     if (filteredTags.length === 0) {
@@ -81,6 +88,7 @@ const CarsList = ({ filteredTags = [], selectedSort }) => {
 const handleBookNow = async (id) => {
   setSelectedCarId(id);
   };
+
 
   // filter Searched car
 

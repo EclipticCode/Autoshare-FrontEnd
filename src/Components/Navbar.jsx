@@ -8,6 +8,7 @@ import iconImg from "../assets/Icon.png";
 import MyBookingsModal from "./MyBookingsModal";
 
 const Navbar = () => {
+  
   const username = localStorage.getItem("login") || "";
   const token = localStorage.getItem("token") || "";
 

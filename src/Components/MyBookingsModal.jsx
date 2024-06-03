@@ -4,6 +4,7 @@ import { apiUrl } from "./constants";
 import "./MyBookingsModal.css";
 
 const MyBookingsModal = () => {
+  
   const [bookingResponse, setBookingResponse] = useState([]);
 
   const username = localStorage.getItem("login");
