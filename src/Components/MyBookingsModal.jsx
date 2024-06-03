@@ -11,15 +11,16 @@ const MyBookingsModal = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
+    // console.log(import.meta.env.VITE_LOCAL_URL);
     const fetchBookings = async () => {
       try {
         if (username) {
           const response = await axios.get(`${apiUrl}/mybookings/${username}`, {
             headers: { auth: token },
           });
-          if (response.data?.length) {
+          if (Array.isArray(response.data) && response.data.length > 0) {
             const totalBookings = response?.data?.filter(
-              (ele) => ele.isCancelled == false
+              (ele) => ele.isCancelled === false
             );
             setBookingResponse(totalBookings);
           }
