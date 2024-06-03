@@ -10,7 +10,6 @@ import MyBookingsModal from "./MyBookingsModal";
 const Navbar = () => {
   
   const username = localStorage.getItem("login") || "";
-  const token = localStorage.getItem("token") || "";
 
   const handleLogout = () => {
     localStorage.setItem("login", "");
@@ -18,7 +17,7 @@ const Navbar = () => {
     window.location.reload();
   };
 
-  const { searchedCar, setSearchedCar } = useContext(SearchContext);
+  const { setSearchedCar } = useContext(SearchContext);
 
   const navigate = useNavigate();
 
