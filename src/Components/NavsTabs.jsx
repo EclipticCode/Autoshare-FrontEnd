@@ -14,7 +14,7 @@ const NavsTabs = () => {
               </Link>
             </li>
             <li className="nav-item me-4">
-              <Link className="nav-link cars" to="#">
+              <Link className="nav-link cars mt-2" to="#">
                 EV Zone{" "}
                 <div
                   className="small"
