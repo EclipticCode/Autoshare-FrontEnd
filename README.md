@@ -41,7 +41,7 @@ autoshare-frontend/
 - HTML5
 - CSS3
 - Javascript
-- React
+- ReactJS
 - Bootstrap
 
 
@@ -56,3 +56,6 @@ To geta local copy up and running , follow these steps:
 Step 1 : git clone https://github.com/EclipticCode/Autoshare-FrontEnd   
 Step 2 : npm install   
 Step 3 : npm run dev
+
+## Website Link
+Visit the Web App - [https://autoshare-frontend.netlify.app/](https://autoshare-frontend.netlify.app/)
