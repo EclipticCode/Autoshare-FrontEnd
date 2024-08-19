@@ -42,6 +42,7 @@ autoshare-frontend/
 - CSS3
 - Javascript
 - React
+- Bootstrap
 
 
 ## Installation 
